@@ -1,0 +1,29 @@
+{
+  "name": "utorrent-web-api",
+  "version": "0.1.0",
+  "description": "A complete uTorrent Web API for TypeScript/JavaScript",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha -r node_modules/ts-node/register ./test/**/*.spec.ts --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLii-Technologies/utorrent-web-api.git"
+  },
+  "keywords": [
+    "utorrent",
+    "torrent",
+    "api"
+  ],
+  "author": "David Ludwig",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "typescript": "^3.2.2"
+  }
+}
