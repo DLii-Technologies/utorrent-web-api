@@ -19,11 +19,15 @@
   ],
   "author": "David Ludwig",
   "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/dotenv": "^6.1.0",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.18",
+    "@types/request": "^2.48.1",
     "chai": "^4.2.0",
     "dotenv": "^6.2.0",
     "mocha": "^5.2.0",

@@ -3,7 +3,7 @@ import { expect } from "chai";
 import "mocha";
 
 /**
- * Load hte environment file
+ * Load the environment file
  */
 config();
 
@@ -12,19 +12,22 @@ config();
  */
 import * as Api from "../src";
 
+
 /**
  * Create the uTorrent instance
  */
 var utorrent = new Api.uTorrent(
-	<string>process.env["host"],
-	parseInt(<string>process.env["port"]),
-	<string>process.env["username"],
-	<string>process.env["password"]
+	<string>process.env["HOST"],
+	parseInt(<string>process.env["PORT"]),
+	<string>process.env["AUTH_USER"],
+	<string>process.env["AUTH_PASS"]
 );
 
 /**
  * Test it out!
  */
 describe("uTorrent", () => {
-
+	it("Fetch a token", () => {
+		return utorrent.fetchToken();
+	});
 });
