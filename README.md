@@ -21,7 +21,7 @@ utorrent.list().then((result) => {
 });
 ```
 
-## Table of Contents
+# Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -38,13 +38,13 @@ utorrent.list().then((result) => {
 **Types/Interfaces:**
 - [Torrent](#torrent)
 
-## Installation
+# Installation
 
 ```sh
 npm i utorrent-web-api
 ```
 
-## Usage
+# Usage
 
 ```ts
 // JavaScript
@@ -54,12 +54,12 @@ const uTorrentApi = require("utorrent-web-api");
 import * as uTorrentApi from "utorrent-web-api";
 ```
 
-## API
+# API
 
-- addUrl
-- list
+- [addUrl](#addurlurl)
+- [list](#list)
 
-### addUrl(url)
+## addUrl(url)
 
 Adds a torrent by the given URL. The URL can be either a direct link to a torrent file, or a magnet link.
 
@@ -78,7 +78,7 @@ client.addUrl(magnetLinkOrUrl).then((hash) => {
 })
 ```
 
-### list()
+## list()
 
 List all torrents currently in uTorrent.
 
@@ -89,7 +89,11 @@ List all torrents currently in uTorrent.
 
 These enums are an easier way to use and represent the possible values something in the API may have.
 
-### Access
+- [Access](#access)
+- [Priority](#priority)
+- [Status](#status)
+
+## Access
 
 Used to specify if the client can view and/or modify a setting
 
@@ -97,7 +101,7 @@ Used to specify if the client can view and/or modify a setting
 `WriteOnly` - Allow write only
 `ReadWrite` - Allow borth read and write
 
-### Priority
+## Priority
 
 Indicates the priority of a downloading torrent's files
 
@@ -106,7 +110,7 @@ Indicates the priority of a downloading torrent's files
 `Normal` - Download with normal priority
 `High` - Download with high priority
 
-### Status
+## Status
 
 The status of a torrent is a bitfield. These flags can be combined together into a single result
 
@@ -131,7 +135,9 @@ if (torrent.status & Status.Started) {
 
 These are the object types used throughout the API
 
-### Torrent
+- [Torrent](#torrent)
+
+## Torrent
 
 Parameter        | Type       | Description
 ---------------- | ---------- | -----------
