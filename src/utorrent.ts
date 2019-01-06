@@ -70,7 +70,10 @@ export class uTorrent
 			network.sendRequest(options).then(resolve)
 			.catch((error) => {
 				if (error instanceof TokenError && retry) {
-					this.request(options, false).then(resolve).catch(reject);
+					this.fetchToken().then((token) => {
+						options.qs.token = this.__token;
+						this.request(options, false).then(resolve).catch(reject);
+					}).catch(reject);
 				} else {
 					reject(error);
 				}
@@ -79,29 +82,9 @@ export class uTorrent
 	}
 
 	/**
-	 * Execute an action on uTorrent
-	 */
-	public execute (action: string, params: any = {}) {
-		let options: request.CoreOptions & request.UriOptions;
-		if (action == "add-file") {
-			options = network.formOptions(params, {
-				uri: this.url(),
-				qs: { action: action }
-			});
-		} else {
-			options = network.defaultOptions({
-				uri: this.url(),
-				qs: Object.assign(params, action == "list" ? { list: 1 } : { action: action })
-			});
-		}
-		options.qs.token = this.__token;
-		return this.request(options);
-	}
-
-	/**
 	 * Fetch a CSRF token
 	 */
-	public fetchToken () {
+	protected fetchToken () {
 		return new Promise<string>((resolve, reject) => {
 			let options = network.defaultOptions({
 				uri: this.url("token.html")
@@ -116,6 +99,26 @@ export class uTorrent
 				}
 			}).catch(reject);
 		});
+	}
+
+	/**
+	 * Execute an action on uTorrent
+	 */
+	protected execute (action: string, params: any = {}) {
+		let options: request.CoreOptions & request.UriOptions;
+		if (action == "add-file") {
+			options = network.formOptions(params, {
+				uri: this.url(),
+				qs: { action: action }
+			});
+		} else {
+			options = network.defaultOptions({
+				uri: this.url(),
+				qs: Object.assign(params, action == "list" ? { list: 1 } : { action: action })
+			});
+		}
+		options.qs.token = this.__token;
+		return this.request(options);
 	}
 
 	// Methods -------------------------------------------------------------------------------------

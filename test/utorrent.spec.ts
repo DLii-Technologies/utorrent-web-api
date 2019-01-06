@@ -31,9 +31,9 @@ var utorrent = new Api.uTorrent(
  * Test it out!
  */
 describe("uTorrent", () => {
-	it("Fetched a token", () => {
-		return utorrent.fetchToken();
-	});
+	it("Fail first request, regenerate token, try again", () => {
+		return utorrent.list();
+	})
 
 	it("Added torrent via URL", () => {
 		return utorrent.addUrl(TORRENT_URL).then((hash) => {
@@ -42,6 +42,6 @@ describe("uTorrent", () => {
 	});
 
 	it("List torrents", () => {
-		return utorrent.list().then();
+		return utorrent.list();
 	});
 });
