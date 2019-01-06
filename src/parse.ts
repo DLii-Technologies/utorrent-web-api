@@ -1,4 +1,82 @@
-import { Torrent } from "./types";
+import {
+	RssFilter,
+	RssFeed,
+	RssUpdate,
+	Torrent
+} from "./types";
+
+/**
+ * Parse an array of raw uTorrent RSS updates into the new format
+ */
+export function rssUpdates (updates: Array<any>) {
+	let result: Array<RssUpdate> = [];
+	for (let update of updates) {
+		result.push({
+			name      : update[0],
+			name_full : update[1],
+			url       : update[2],
+			quality   : update[3],
+			codec     : update[4],
+			timestamp : update[5],
+			season    : update[6],
+			episode   : update[7],
+			episode_to: update[8],
+			feed_id   : update[9],
+			repack    : update[10],
+			in_history: update[11]
+		});
+	}
+	return result;
+}
+
+/**
+ * Parse an array of raw uTorrent RSS feeds into the new format
+ */
+export function rssFeeds (feeds: Array<any>) {
+	let result: Array<RssFeed> = [];
+	for (let feed of feeds) {
+		result.push({
+			id            : feeds[0],
+			enabled       : feeds[1],
+			use_feed_title: feeds[2],
+			user_selected : feeds[3],
+			programmed    : feeds[4],
+			download_state: feeds[5],
+			url           : feeds[6],
+			next_update   : feeds[7],
+			history       : rssUpdates(feeds[8])
+		});
+	}
+	return result;
+}
+
+/**
+ * Parse an array of raw uTorrent RSS feeds into the new format
+ */
+export function rssFilters (filters: Array<any>) {
+	let result: Array<RssFilter> = [];
+	for (let filter of filters) {
+		result.push({
+			id                 : filters[0],
+			flags              : filters[1],
+			name               : filters[2],
+			filter             : filters[3],
+			not_filter         : filters[4],
+			directory          : filters[5],
+			feed               : filters[6],
+			quality            : filters[7],
+			label              : filters[8],
+			postpone_mode      : filters[9],
+			last_match         : filters[10],
+			smart_ep_filter    : filters[11],
+			repack_ep_filter   : filters[12],
+			episode_filter_str : filters[13],
+			episode_filter     : filters[14],
+			resolving_candidate: filters[15]
+		});
+	}
+	return result;
+}
 
 /**
  * Parse an array of raw uTorrent torrents into the new format

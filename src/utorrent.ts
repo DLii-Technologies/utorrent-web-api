@@ -141,12 +141,12 @@ export class uTorrent
 			this.execute("list").then((data: string) => {
 				let list: any = JSON.parse(data);
 				let result: TorrentList = {
-					build     : list["build"],
-					cache_id  : list["torrentc"],
-					labels    : {},
-					torrents  : parse.torrents(list["torrents"]),
-					rssfeeds  : [],
-					rssfilters: [],
+					build      : list["build"],
+					cache_id   : list["torrentc"],
+					labels     : {},
+					torrents   : parse.torrents(list["torrents"]),
+					rss_feeds  : parse.rssFeeds(list["rssfeeds"]),
+					rss_filters: parse.rssFilters(list["rssfilters"]),
 				}
 				resolve(result);
 			}).catch(reject);

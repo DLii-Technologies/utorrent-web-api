@@ -126,8 +126,8 @@ export interface RssFilter {
 export interface TorrentList {
 	build     : number,
 	torrents  : Array<Torrent>
-	rssfeeds  : Array<RssFeed>,
-	rssfilters: Array<RssFilter>,
+	rss_feeds  : Array<RssFeed>,
+	rss_filters: Array<RssFilter>,
 	cache_id  : string|number,
 	labels    : {
 		[key: string]: number
@@ -146,11 +146,11 @@ export interface TorrentListCache {
 		changed: Array<Torrent>,
 		removed: Array<string>
 	},
-	rssfeeds: {
+	rss_feeds: {
 		changed: Array<RssFeed>,
 		removed: Array<number>
 	},
-	rssfilters: {
+	rss_filters: {
 		change: Array<RssFilter>,
 		removed: Array<number>
 	}
