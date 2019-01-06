@@ -72,9 +72,9 @@ Adds a torrent by the given URL. The URL can be either a direct link to a torren
 **Example**
 ```ts
 client.addUrl(magnetLinkOrUrl).then((hash) => {
-	console.log("The hash of the added torrent is:", hash);
+    console.log("The hash of the added torrent is:", hash);
 }).catch((err) => {
-	console.error("Something went wrong:", err);
+    console.error("Something went wrong:", err);
 })
 ```
 
