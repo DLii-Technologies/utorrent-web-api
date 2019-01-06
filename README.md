@@ -63,10 +63,10 @@ import * as uTorrentApi from "utorrent-web-api";
 
 Adds a torrent by the given URL. The URL can be either a direct link to a torrent file, or a magnet link.
 
-**Arguments:**
+**Arguments:**\
 `url` - Magnet link or URL of torrent file
 
-**Returns**:
+**Returns**:\
 `Promise\<Hash\>`
 
 **Example**
@@ -97,30 +97,30 @@ These enums are an easier way to use and represent the possible values something
 
 Used to specify if the client can view and/or modify a setting
 
-`ReadOnly` - Allow read only
-`WriteOnly` - Allow write only
+`ReadOnly` - Allow read only\
+`WriteOnly` - Allow write only\
 `ReadWrite` - Allow borth read and write
 
 ## Priority
 
 Indicates the priority of a downloading torrent's files
 
-`Skip` - Don't download the file
-`Low` - Download with low priority
-`Normal` - Download with normal priority
+`Skip` - Don't download the file\
+`Low` - Download with low priority\
+`Normal` - Download with normal priority\
 `High` - Download with high priority
 
 ## Status
 
 The status of a torrent is a bitfield. These flags can be combined together into a single result
 
-`Started` - The torrent has started downloading
-`Checking` - The torrent is checking it's files
-`StartAfterChecking` - The torrent will start after checking
-`Checked` - The torrent has checked its files
-`Error` - The torrent is in an error state
-`Paused` - The torrent is paused
-`Queued` - The torrent is currently queued
+`Started` - The torrent has started downloading\
+`Checking` - The torrent is checking it's files\
+`StartAfterChecking` - The torrent will start after checking\
+`Checked` - The torrent has checked its files\
+`Error` - The torrent is in an error state\
+`Paused` - The torrent is paused\
+`Queued` - The torrent is currently queued\
 `Loaded` - The torrent is loaded
 
 **Example:**
