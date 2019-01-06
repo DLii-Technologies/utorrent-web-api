@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "doc": "rm -rf ./doc && typedoc --mode modules --excludeExternals --excludePrivate --excludeProtected --out ./doc/ ./src/utorrent.ts ./src/errors.ts ./src/types.ts",
     "test": "mocha -r node_modules/ts-node/register ./test/**/*.spec.ts --timeout 10000"
   },
   "repository": {
