@@ -1,2 +1,3 @@
-export * from "./utorrent";
+export * from "./errors";
 export * from "./types";
+export * from "./utorrent";
