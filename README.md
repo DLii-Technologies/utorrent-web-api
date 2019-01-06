@@ -85,7 +85,7 @@ List all torrents currently in uTorrent.
 **Returns:**
 `Promise<TorrentList>`
 
-## Enums
+# Enums
 
 These enums are an easier way to use and represent the possible values something in the API may have.
 
@@ -131,7 +131,7 @@ if (torrent.status & Status.Started) {
 }
 ```
 
-## Types
+# Types
 
 These are the object types used throughout the API
 
