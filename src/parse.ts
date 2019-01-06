@@ -92,7 +92,7 @@ export function torrents (torrents: Array<any>) {
 			progress       : torrent[4] / 1000,
 			downloaded     : torrent[5],
 			uploaded       : torrent[6],
-			up_down_ratio  : torrent[7],
+			up_down_ratio  : torrent[7] / 1000,
 			upload_speed   : torrent[8],
 			download_speed : torrent[9],
 			time_remaining : torrent[10],

@@ -55,7 +55,7 @@ export interface Torrent {
     status_message: string;
     stream_id: string;
     date_added: Date;
-    date_completed: Date;
+    date_completed: Date | null;
     app_update_url: string;
 }
 /**
@@ -96,8 +96,8 @@ export interface RssFilter {
     id: number;
     flags: number;
     name: string;
-    filter: RegExp;
-    not_filter: RegExp;
+    filter: string;
+    not_filter: string;
     directory: string;
     feed: number;
     quality: number;
@@ -116,8 +116,8 @@ export interface RssFilter {
 export interface TorrentList {
     build: number;
     torrents: Array<Torrent>;
-    rssfeeds: Array<RssFeed>;
-    rssfilters: Array<RssFilter>;
+    rss_feeds: Array<RssFeed>;
+    rss_filters: Array<RssFilter>;
     cache_id: string | number;
     labels: {
         [key: string]: number;
@@ -133,11 +133,11 @@ export interface TorrentListCache {
         changed: Array<Torrent>;
         removed: Array<string>;
     };
-    rssfeeds: {
+    rss_feeds: {
         changed: Array<RssFeed>;
         removed: Array<number>;
     };
-    rssfilters: {
+    rss_filters: {
         change: Array<RssFilter>;
         removed: Array<number>;
     };

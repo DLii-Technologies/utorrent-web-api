@@ -1,0 +1,6 @@
+# No need to publish the source code
+src/
+test/
+.env
+.env.example
+tsconfig.json

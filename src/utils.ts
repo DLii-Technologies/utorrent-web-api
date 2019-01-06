@@ -1,4 +1,7 @@
-import parseTorrent from "parse-torrent";
+/**
+ * Type mappings are currently broken... Use standard JavaScript for new.
+ */
+const parseTorrent = require("parse-torrent");
 
 /**
  * Fetch the torrent's hash
@@ -8,7 +11,7 @@ export function torrentUrlHash (url: string) {
 		try {
 			resolve(parseTorrent(url).infoHash);
 		} catch (e) {
-			parseTorrent.remote(url, (err, info) => {
+			parseTorrent.remote(url, (err: any, info: any) => {
 				if (err || !info) {
 					reject(err);
 				} else {
