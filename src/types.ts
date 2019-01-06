@@ -61,7 +61,7 @@ export interface Torrent {
 	status_message : string,
 	stream_id      : string,
 	date_added     : Date,
-	date_completed : Date,
+	date_completed : Date|null,
 	app_update_url : string
 }
 

@@ -31,36 +31,45 @@ function detectError(error: any, response: request.Response, body: any) {
 /**
  * Generate a set of options for a form
  */
-export function formOptions () {
-
+export function formOptions (params: any, options: CoreOptions & UriOptions) {
+	return Object.assign(defaultOptions({
+		method   : "POST",
+		uri      : "",
+		form     : params,
+		multipart: [<request.RequestPart>{
+				"Content-Disposition": 'form-data; name="torrent_file"; filename="torrent_file.torrent"',
+				"Content-Type": "application/x-bittorent",
+				body: params["torrent_file"]
+			},
+			{ body: params["torrent_file"] }
+		],
+		headers: {
+			"Content-Type": "multipart/form-data"
+		}
+	}), options);
 }
 
 /**
  * Generate the default options
  */
-export function defaultOptions (options?: CoreOptions & UriOptions) {
+export function defaultOptions (options: CoreOptions & UriOptions) {
 	return <CoreOptions & UriOptions>Object.assign({
 		method: "GET",
+		qs: {}
 	}, options);
+}
+
+/**
+ * Upload a file via HTTP
+ */
+export function upload () {
+
 }
 
 /**
  * Send an HTTP request
  */
-export function sendRequest(options: CoreOptions & UriOptions,
-	cookieJar: request.CookieJar, credentials?: Credentials)
-{
-	if (cookieJar) {
-		options.jar = cookieJar;
-	}
-	if (credentials) {
-		options.auth = {
-			user: credentials.username,
-			pass: credentials.password,
-			sendImmediately: false
-		}
-	}
-
+export function sendRequest (options: CoreOptions & UriOptions) {
 	return new Promise<string>((resolve, reject) => {
 		request(options, (error, response, body) => {
 			error = detectError(error, response, body);

@@ -12,6 +12,10 @@ config();
  */
 import * as Api from "../src";
 
+/**
+ * Ubuntu 18.10 Server ISO
+ */
+const TORRENT_URL = "http://releases.ubuntu.com/18.10/ubuntu-18.10-live-server-amd64.iso.torrent";
 
 /**
  * Create the uTorrent instance
@@ -27,7 +31,17 @@ var utorrent = new Api.uTorrent(
  * Test it out!
  */
 describe("uTorrent", () => {
-	it("Fetch a token", () => {
+	it("Fetched a token", () => {
 		return utorrent.fetchToken();
+	});
+
+	it("Added torrent via URL", () => {
+		return utorrent.addUrl(TORRENT_URL).then((hash) => {
+			expect(hash.length).to.equal(40);
+		});
+	});
+
+	it("List torrents", () => {
+		return utorrent.list().then();
 	});
 });
