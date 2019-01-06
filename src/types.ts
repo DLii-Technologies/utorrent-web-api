@@ -3,7 +3,7 @@
  * The possible access settings
  */
 export enum Access {
-	ReadOnly  = "R",
+	ReadOnly  = "R", // Read Only
 	WriteOnly = "W",
 	ReadWrite = "Y"
 }

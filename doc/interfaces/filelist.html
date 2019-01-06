@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthError | utorrent-web-api</title>
+	<title>FileList | utorrent-web-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_errors_.html">&quot;errors&quot;</a>
-				</li>
-				<li>
-					<a href="_errors_.autherror.html">AuthError</a>
+					<a href="filelist.html">FileList</a>
 				</li>
 			</ul>
-			<h1>Class AuthError</h1>
+			<h1>Interface FileList</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>An authorization error</p>
+						<p>Represents a file list for a torrent returned by uTorrent</p>
 					</div>
 				</div>
 			</section>
@@ -78,12 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_errors_.utorrenterror.html" class="tsd-signature-type">uTorrentError</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">AuthError</span>
-							</li>
-						</ul>
+						<span class="target">FileList</span>
 					</li>
 				</ul>
 			</section>
@@ -92,82 +84,45 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_errors_.autherror.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_errors_.autherror.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_errors_.autherror.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_errors_.autherror.html#stack" class="tsd-kind-icon">stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filelist.html#build" class="tsd-kind-icon">build</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filelist.html#files" class="tsd-kind-icon">files</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filelist.html#hash" class="tsd-kind-icon">hash</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Error<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_errors_.autherror.html" class="tsd-signature-type">AuthError</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="_errors_.utorrenterror.html">uTorrentError</a>.<a href="_errors_.utorrenterror.html#constructor">constructor</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/7608591/src/errors.ts#L14">errors.ts:14</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> message: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_errors_.autherror.html" class="tsd-signature-type">AuthError</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="build" class="tsd-anchor"></a>
+					<h3>build</h3>
+					<div class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in /home/david/.npm-global/lib/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:964</li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a2c0ff3/src/types.ts#L184">types.ts:184</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="files" class="tsd-anchor"></a>
+					<h3>files</h3>
+					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="fileinfo.html" class="tsd-signature-type">FileInfo</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Error.name</p>
 						<ul>
-							<li>Defined in /home/david/.npm-global/lib/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:963</li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a2c0ff3/src/types.ts#L186">types.ts:186</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-					<a name="stack" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> stack</h3>
-					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="hash" class="tsd-anchor"></a>
+					<h3>hash</h3>
+					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Error.stack</p>
-						<p>Overrides Error.stack</p>
 						<ul>
-							<li>Defined in /home/david/.npm-global/lib/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:965</li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a2c0ff3/src/types.ts#L185">types.ts:185</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,45 +134,69 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_errors_.html">"errors"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_types_.html">"types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_utorrent_.html">"utorrent"</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/access.html" class="tsd-kind-icon">Access</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/priority.html" class="tsd-kind-icon">Priority</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/autherror.html" class="tsd-kind-icon">Auth<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/tokenerror.html" class="tsd-kind-icon">Token<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/utorrent.html" class="tsd-kind-icon">u<wbr>Torrent</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/utorrenterror.html" class="tsd-kind-icon">u<wbr>Torrent<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="fileinfo.html" class="tsd-kind-icon">File<wbr>Info</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_errors_.autherror.html" class="tsd-kind-icon">Auth<wbr>Error</a>
+					<li class="current tsd-kind-interface">
+						<a href="filelist.html" class="tsd-kind-icon">File<wbr>List</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_errors_.autherror.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="filelist.html#build" class="tsd-kind-icon">build</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_errors_.autherror.html#message" class="tsd-kind-icon">message</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="filelist.html#files" class="tsd-kind-icon">files</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_errors_.autherror.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_errors_.autherror.html#stack" class="tsd-kind-icon">stack</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="filelist.html#hash" class="tsd-kind-icon">hash</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_errors_.tokenerror.html" class="tsd-kind-icon">Token<wbr>Error</a>
+					<li class=" tsd-kind-interface">
+						<a href="rssfeed.html" class="tsd-kind-icon">Rss<wbr>Feed</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_errors_.utorrenterror.html" class="tsd-kind-icon">u<wbr>Torrent<wbr>Error</a>
+					<li class=" tsd-kind-interface">
+						<a href="rssfilter.html" class="tsd-kind-icon">Rss<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="rssupdate.html" class="tsd-kind-icon">Rss<wbr>Update</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="torrent.html" class="tsd-kind-icon">Torrent</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="torrentlist.html" class="tsd-kind-icon">Torrent<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="torrentlistcache.html" class="tsd-kind-icon">Torrent<wbr>List<wbr>Cache</a>
 					</li>
 				</ul>
 			</nav>
