@@ -1,5 +1,6 @@
-import { Model }    from "../core/model";
-import { ITorrent } from "../types";
+import { Model }         from "../core/model";
+import { ITorrent }      from "../types";
+import { uTorrentError } from "../errors";
 
 export enum RemoveFlag {
 	JobOnly     = 0,
@@ -52,18 +53,22 @@ export class Torrent extends Model
 	 */
 	protected execute (action: string) {
 		// Don't return the response of the execution.
-		return new Promise((resolve, reject) => {
-			this.utorrent().execute(action, {hash: this.__torrent.hash})
-				.then(() => { resolve(); }).catch(reject);
+		return new Promise<void>((resolve, reject) => {
+			this.utorrent().execute(action, {hash: this.__torrent.hash, list: 1}).then((body) => {
+				let torrents = JSON.parse(body)["torrents"];
+				for (let torrent of torrents) {
+					if (torrent[0] == this.hash) {
+						this.setData(torrent);
+						resolve();
+						return;
+					}
+				}
+				throw new uTorrentError(`Torrent not found: ${this.hash}`);
+			}).catch(reject);
 		});
 	}
 
 	// Methods -------------------------------------------------------------------------------------
-
-	/**
-	 * Fetch the files associated with the torrent
-	 */
-	public files () {}
 
 	/**
 	 * Pause the torrent
@@ -76,7 +81,7 @@ export class Torrent extends Model
 	 * Refresh the current torrent
 	 */
 	public refresh () {
-		return new Promise((resolve, reject) => {
+		return new Promise<void>((resolve, reject) => {
 			this.utorrent().list().then(() => {
 				resolve();
 			}).catch(reject);
@@ -125,175 +130,182 @@ export class Torrent extends Model
 	/**
 	 * Get the app update URL (whatever that is...)
 	 */
-	appUpdateUrl () {
+	get appUpdateUrl () {
 		return this.__torrent.app_update_url;
 	}
 
 	/**
 	 * Get the availability of the torrent (whatever that is as well)
 	 */
-	availability () {
+	get availability () {
 		return this.__torrent.availability;
 	}
 
 	/**
 	 * Get the date the torrent was added
 	 */
-	dateAdded () {
+	get dateAdded () {
 		return this.__torrent.date_added;
 	}
 
 	/**
 	 * Get the date the torrent was completed
 	 */
-	dateCompleted () {
+	get dateCompleted () {
 		return this.__torrent.date_completed;
 	}
 
 	/**
 	 * The amount of data downloaded (bytes)
 	 */
-	downloaded () {
+	get downloaded () {
 		return this.__torrent.downloaded;
 	}
 
 	/**
 	 * The download speed (bytes per second)
 	 */
-	downloadSpeed () {
+	get downloadSpeed () {
 		return this.__torrent.download_speed;
 	}
 
 	/**
 	 * Get the download URL if it exists
 	 */
-	downloadUrl () {
+	get downloadUrl () {
 		return this.__torrent.download_url || null;
 	}
 
 	/**
 	 * Get the estimated time remaining (seconds)
 	 */
-	eta () {
+	get eta () {
 		return this.__torrent.time_remaining;
+	}
+
+	/**
+	 * Fetch the files associated with the torrent
+	 */
+	get files () {
+		return undefined;
 	}
 
 	/**
 	 * The torrent's hash
 	 */
-	hash () {
+	get hash () {
 		return this.__torrent.hash;
 	}
 
 	/**
 	 * The torrent's label if set
 	 */
-	label () {
+	get label () {
 		return this.__torrent.label || null;
 	}
 
 	/**
 	 * The name of the torrent
 	 */
-	name () {
+	get name () {
 		return this.__torrent.name;
 	}
 
 	/**
 	 * The number of peers connected
 	 */
-	peersConnected () {
+	get peersConnected () {
 		return this.__torrent.peers_connected;
 	}
 
 	/**
 	 * The peers in the swarm
 	 */
-	peersInSwarm () {
+	get peersInSwarm () {
 		return this.__torrent.peers_in_swarm;
 	}
 
 	/**
 	 * The progress of the torrent
 	 */
-	progress () {
+	get progress () {
 		return this.__torrent.progress;
 	}
 
 	/**
 	 * The queue order of the torrent
 	 */
-	queueOrder () {
+	get queueOrder () {
 		return this.__torrent.queue_order;
 	}
 
 	/**
 	 * The upload/download ratio of the torrent
 	 */
-	ratio () {
+	get ratio () {
 		return this.__torrent.ratio;
 	}
 
 	/**
 	 * The RSS feed URL
 	 */
-	rssFeedUrl () {
+	get rssFeedUrl () {
 		return this.__torrent.rss_feed_url;
 	}
 
 	/**
 	 * The number of seeds connected
 	 */
-	seedsConnected () {
+	get seedsConnected () {
 		return this.__torrent.seeds_connected;
 	}
 
 	/**
 	 * The number of seeds in the swarm
 	 */
-	seedsInSwarm () {
+	get seedsInSwarm () {
 		return this.__torrent.seeds_in_swarm;
 	}
 
 	/**
 	 * The total size of the files
 	 */
-	size () {
+	get size () {
 		return this.__torrent.size;
 	}
 
 	/**
 	 * The status of the torrent
 	 */
-	status () {
+	get status () {
 		return this.__torrent.status;
 	}
 
 	/**
 	 * The status message of the torrent
 	 */
-	statusMessage () {
+	get statusMessage () {
 		return this.__torrent.status_message;
 	}
 
 	/**
 	 * The stream ID of the torrent
 	 */
-	streamId () {
+	get streamId () {
 		return this.__torrent.stream_id;
 	}
 
 	/**
 	 * The amount of data uploaded (bytes)
 	 */
-	uploaded () {
+	get uploaded () {
 		return this.__torrent.uploaded;
 	}
 
 	/**
 	 * The upload speed (bytes per second)
 	 */
-	uploadSpeed () {
+	get uploadSpeed () {
 		return this.__torrent.upload_speed;
 	}
 }

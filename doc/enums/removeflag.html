@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Status | utorrent-web-api</title>
+	<title>RemoveFlag | utorrent-web-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,23 +54,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="status.html">Status</a>
+					<a href="removeflag.html">RemoveFlag</a>
 				</li>
 			</ul>
-			<h1>Enumeration Status</h1>
+			<h1>Enumeration RemoveFlag</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The possible status bit-flags</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -78,14 +71,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#checked" class="tsd-kind-icon">Checked</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#checking" class="tsd-kind-icon">Checking</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#error" class="tsd-kind-icon">Error</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#loaded" class="tsd-kind-icon">Loaded</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#paused" class="tsd-kind-icon">Paused</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#queued" class="tsd-kind-icon">Queued</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#startafterchecking" class="tsd-kind-icon">Start<wbr>After<wbr>Checking</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="status.html#started" class="tsd-kind-icon">Started</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="removeflag.html#jobonly" class="tsd-kind-icon">Job<wbr>Only</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="removeflag.html#withdata" class="tsd-kind-icon">With<wbr>Data</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="removeflag.html#withtorrent" class="tsd-kind-icon">With<wbr>Torrent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,82 +82,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="checked" class="tsd-anchor"></a>
-					<h3>Checked</h3>
-					<div class="tsd-signature tsd-kind-icon">Checked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;8</span></div>
+					<a name="jobonly" class="tsd-anchor"></a>
+					<h3>Job<wbr>Only</h3>
+					<div class="tsd-signature tsd-kind-icon">Job<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L45">types.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/ecfc9f9/src/models/torrent.ts#L6">models/torrent.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="checking" class="tsd-anchor"></a>
-					<h3>Checking</h3>
-					<div class="tsd-signature tsd-kind-icon">Checking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;2</span></div>
+					<a name="withdata" class="tsd-anchor"></a>
+					<h3>With<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">With<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L43">types.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/ecfc9f9/src/models/torrent.ts#L8">models/torrent.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="error" class="tsd-anchor"></a>
-					<h3>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;16</span></div>
+					<a name="withtorrent" class="tsd-anchor"></a>
+					<h3>With<wbr>Torrent</h3>
+					<div class="tsd-signature tsd-kind-icon">With<wbr>Torrent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L46">types.ts:46</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="loaded" class="tsd-anchor"></a>
-					<h3>Loaded</h3>
-					<div class="tsd-signature tsd-kind-icon">Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;128</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L49">types.ts:49</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="paused" class="tsd-anchor"></a>
-					<h3>Paused</h3>
-					<div class="tsd-signature tsd-kind-icon">Paused<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;32</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L47">types.ts:47</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="queued" class="tsd-anchor"></a>
-					<h3>Queued</h3>
-					<div class="tsd-signature tsd-kind-icon">Queued<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;64</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L48">types.ts:48</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="startafterchecking" class="tsd-anchor"></a>
-					<h3>Start<wbr>After<wbr>Checking</h3>
-					<div class="tsd-signature tsd-kind-icon">Start<wbr>After<wbr>Checking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;4</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L44">types.ts:44</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="started" class="tsd-anchor"></a>
-					<h3>Started</h3>
-					<div class="tsd-signature tsd-kind-icon">Started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;1</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L42">types.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/ecfc9f9/src/models/torrent.ts#L7">models/torrent.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,41 +135,32 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="status.html" class="tsd-kind-icon">Status</a>
+						<a href="removeflag.html" class="tsd-kind-icon">Remove<wbr>Flag</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#checked" class="tsd-kind-icon">Checked</a>
+								<a href="removeflag.html#jobonly" class="tsd-kind-icon">Job<wbr>Only</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#checking" class="tsd-kind-icon">Checking</a>
+								<a href="removeflag.html#withdata" class="tsd-kind-icon">With<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#error" class="tsd-kind-icon">Error</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#loaded" class="tsd-kind-icon">Loaded</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#paused" class="tsd-kind-icon">Paused</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#queued" class="tsd-kind-icon">Queued</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#startafterchecking" class="tsd-kind-icon">Start<wbr>After<wbr>Checking</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="status.html#started" class="tsd-kind-icon">Started</a>
+								<a href="removeflag.html#withtorrent" class="tsd-kind-icon">With<wbr>Torrent</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-enum">
+						<a href="torrentstatus.html" class="tsd-kind-icon">Torrent<wbr>Status</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/autherror.html" class="tsd-kind-icon">Auth<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/tokenerror.html" class="tsd-kind-icon">Token<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/torrent.html" class="tsd-kind-icon">Torrent</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/utorrent.html" class="tsd-kind-icon">u<wbr>Torrent</a>

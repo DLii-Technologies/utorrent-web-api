@@ -11,6 +11,7 @@ config();
  * Import the items
  */
 import * as Api from "../src";
+import { TorrentStatus } from "../src";
 
 /**
  * Ubuntu 18.10 Server ISO
@@ -60,8 +61,24 @@ describe("uTorrent", () => {
 
 	it("Test model cache with updated results", () => {
 		return utorrent.list().then((result) => {
-			let newTorrent = result.torrents[torrent.hash()];
+			let newTorrent = result.torrents[torrent.hash];
 			expect(newTorrent).to.equal(torrent);
 		});
+	});
+
+	it("Torrent should not be paused", () => {
+		expect(torrent.status & TorrentStatus.Paused).to.equal(0);
+	});
+
+	it("Pause the added torrent", () => {
+		return torrent.pause();
+	});
+
+	it("Torrent should now be paused", () => {
+		expect(torrent.status & TorrentStatus.Paused).to.equal(TorrentStatus.Paused);
+	})
+
+	it("Resume the added torrent", () => {
+		return torrent.unpause();
 	});
 });

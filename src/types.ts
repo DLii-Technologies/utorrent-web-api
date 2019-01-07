@@ -38,7 +38,7 @@ export enum Priority {
 /**
  * The possible status bit-flags
  */
-export enum Status {
+export enum TorrentStatus {
 	Started            = 1,
 	Checking           = 2,
 	StartAfterChecking = 4,
@@ -105,7 +105,7 @@ export interface ISession {
  */
 export interface ITorrent {
 	hash           : string,
-	status         : Status,
+	status         : TorrentStatus,
 	name           : string,
 	size           : number,
 	progress       : number,
