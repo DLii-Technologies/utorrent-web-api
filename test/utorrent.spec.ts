@@ -28,6 +28,12 @@ var utorrent = new Api.uTorrent(
 );
 
 /**
+ * Use to store a torrent
+ */
+let torrentHash: string;
+let torrent    : Api.Torrent;
+
+/**
  * Test it out!
  */
 describe("uTorrent", () => {
@@ -35,13 +41,27 @@ describe("uTorrent", () => {
 		return utorrent.list();
 	})
 
-	it("Added torrent via URL", () => {
+	it("Added torrent via URL, and fetch the hash", () => {
 		return utorrent.addUrl(TORRENT_URL).then((hash) => {
 			expect(hash.length).to.equal(40);
+			torrentHash = hash;
 		});
 	});
 
-	it("List torrents", () => {
-		return utorrent.list();
+	it("List torrents and find the added torrent", (done) => {
+		setTimeout(() => {
+			utorrent.list().then((result) => {
+				torrent = result.torrents[torrentHash];
+				expect(torrent).to.not.equal(undefined);
+				done();
+			}).catch(done);
+		}, 1000);
+	});
+
+	it("Test model cache with updated results", () => {
+		return utorrent.list().then((result) => {
+			let newTorrent = result.torrents[torrent.hash()];
+			expect(newTorrent).to.equal(torrent);
+		});
 	});
 });

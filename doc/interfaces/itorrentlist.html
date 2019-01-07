@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TorrentList | utorrent-web-api</title>
+	<title>ITorrentList | utorrent-web-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="torrentlist.html">TorrentList</a>
+					<a href="itorrentlist.html">ITorrentList</a>
 				</li>
 			</ul>
-			<h1>Interface TorrentList</h1>
+			<h1>Interface ITorrentList</h1>
 		</div>
 	</div>
 </header>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TorrentList</span>
+						<span class="target">ITorrentList</span>
 					</li>
 				</ul>
 			</section>
@@ -86,12 +86,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#build" class="tsd-kind-icon">build</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#cache_id" class="tsd-kind-icon">cache_<wbr>id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#labels" class="tsd-kind-icon">labels</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#rss_feeds" class="tsd-kind-icon">rss_<wbr>feeds</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#rss_filters" class="tsd-kind-icon">rss_<wbr>filters</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="torrentlist.html#torrents" class="tsd-kind-icon">torrents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itorrentlist.html#cache_id" class="tsd-kind-icon">cache_<wbr>id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itorrentlist.html#labels" class="tsd-kind-icon">labels</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itorrentlist.html#rss_feeds" class="tsd-kind-icon">rss_<wbr>feeds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itorrentlist.html#rss_filters" class="tsd-kind-icon">rss_<wbr>filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itorrentlist.html#torrents" class="tsd-kind-icon">torrents</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,22 +99,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="build" class="tsd-anchor"></a>
-					<h3>build</h3>
-					<div class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L127">types.ts:127</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="cache_id" class="tsd-anchor"></a>
 					<h3>cache_<wbr>id</h3>
 					<div class="tsd-signature tsd-kind-icon">cache_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L131">types.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L196">types.ts:196</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +114,7 @@
 					<div class="tsd-signature tsd-kind-icon">labels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L132">types.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L197">types.ts:197</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -140,32 +129,40 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="rss_feeds" class="tsd-anchor"></a>
 					<h3>rss_<wbr>feeds</h3>
-					<div class="tsd-signature tsd-kind-icon">rss_<wbr>feeds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="rssfeed.html" class="tsd-signature-type">RssFeed</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">rss_<wbr>feeds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="irssfeed.html" class="tsd-signature-type">IRssFeed</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L129">types.ts:129</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L194">types.ts:194</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="rss_filters" class="tsd-anchor"></a>
 					<h3>rss_<wbr>filters</h3>
-					<div class="tsd-signature tsd-kind-icon">rss_<wbr>filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="rssfilter.html" class="tsd-signature-type">RssFilter</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">rss_<wbr>filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="irssfilter.html" class="tsd-signature-type">IRssFilter</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L130">types.ts:130</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L195">types.ts:195</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="torrents" class="tsd-anchor"></a>
 					<h3>torrents</h3>
-					<div class="tsd-signature tsd-kind-icon">torrents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="torrent.html" class="tsd-signature-type">Torrent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">torrents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/13c0bc9/src/types.ts#L128">types.ts:128</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L193">types.ts:193</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>hash: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">Torrent</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -181,6 +178,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
 						<a href="../enums/access.html" class="tsd-kind-icon">Access</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/action.html" class="tsd-kind-icon">Action</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="../enums/priority.html" class="tsd-kind-icon">Priority</a>
@@ -207,46 +207,55 @@
 						<a href="filelist.html" class="tsd-kind-icon">File<wbr>List</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="rssfeed.html" class="tsd-kind-icon">Rss<wbr>Feed</a>
+						<a href="irssfeed.html" class="tsd-kind-icon">IRss<wbr>Feed</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="rssfilter.html" class="tsd-kind-icon">Rss<wbr>Filter</a>
+						<a href="irssfilter.html" class="tsd-kind-icon">IRss<wbr>Filter</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="rssupdate.html" class="tsd-kind-icon">Rss<wbr>Update</a>
+						<a href="irssupdate.html" class="tsd-kind-icon">IRss<wbr>Update</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="torrent.html" class="tsd-kind-icon">Torrent</a>
+						<a href="isession.html" class="tsd-kind-icon">ISession</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="isetting.html" class="tsd-kind-icon">ISetting</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="isettings.html" class="tsd-kind-icon">ISettings</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="itorrent.html" class="tsd-kind-icon">ITorrent</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="torrentlist.html" class="tsd-kind-icon">Torrent<wbr>List</a>
+						<a href="itorrentlist.html" class="tsd-kind-icon">ITorrent<wbr>List</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#build" class="tsd-kind-icon">build</a>
+								<a href="itorrentlist.html#cache_id" class="tsd-kind-icon">cache_<wbr>id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#cache_id" class="tsd-kind-icon">cache_<wbr>id</a>
+								<a href="itorrentlist.html#labels" class="tsd-kind-icon">labels</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#labels" class="tsd-kind-icon">labels</a>
+								<a href="itorrentlist.html#rss_feeds" class="tsd-kind-icon">rss_<wbr>feeds</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#rss_feeds" class="tsd-kind-icon">rss_<wbr>feeds</a>
+								<a href="itorrentlist.html#rss_filters" class="tsd-kind-icon">rss_<wbr>filters</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#rss_filters" class="tsd-kind-icon">rss_<wbr>filters</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="torrentlist.html#torrents" class="tsd-kind-icon">torrents</a>
+								<a href="itorrentlist.html#torrents" class="tsd-kind-icon">torrents</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="torrentlistcache.html" class="tsd-kind-icon">Torrent<wbr>List<wbr>Cache</a>
+						<a href="itorrentlistcache.html" class="tsd-kind-icon">ITorrent<wbr>List<wbr>Cache</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="iversion.html" class="tsd-kind-icon">IVersion</a>
 					</li>
 				</ul>
 			</nav>

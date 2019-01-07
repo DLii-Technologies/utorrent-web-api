@@ -6,7 +6,7 @@ const parseTorrent = require("parse-torrent");
 /**
  * Fetch the torrent's hash
  */
-export function torrentUrlHash (url: string) {
+export function hashFromUrl(url: string) {
 	return new Promise<string>((resolve, reject) => {
 		try {
 			resolve(parseTorrent(url).infoHash);
@@ -15,7 +15,7 @@ export function torrentUrlHash (url: string) {
 				if (err || !info) {
 					reject(err);
 				} else {
-					resolve(info.infoHash);
+					resolve(info.infoHash.toUpperCase());
 				}
 			});
 		}

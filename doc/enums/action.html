@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Access | utorrent-web-api</title>
+	<title>Action | utorrent-web-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="access.html">Access</a>
+					<a href="action.html">Action</a>
 				</li>
 			</ul>
-			<h1>Enumeration Access</h1>
+			<h1>Enumeration Action</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The possible access settings</p>
+						<p>Actions that can be performed on a torrent</p>
 					</div>
 				</div>
 			</section>
@@ -78,9 +78,16 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#readwrite" class="tsd-kind-icon">Read<wbr>Write</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#writeonly" class="tsd-kind-icon">Write<wbr>Only</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#forcestart" class="tsd-kind-icon">Force<wbr>Start</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#pause" class="tsd-kind-icon">Pause</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#recheck" class="tsd-kind-icon">Recheck</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#remove" class="tsd-kind-icon">Remove</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#removedata" class="tsd-kind-icon">Remove<wbr>Data</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#removedatatorrent" class="tsd-kind-icon">Remove<wbr>Data<wbr>Torrent</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#removetorrent" class="tsd-kind-icon">Remove<wbr>Torrent</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#start" class="tsd-kind-icon">Start</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#stop" class="tsd-kind-icon">Stop</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="action.html#unpause" class="tsd-kind-icon">Unpause</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,32 +96,102 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="readonly" class="tsd-anchor"></a>
-					<h3>Read<wbr>Only</h3>
-					<div class="tsd-signature tsd-kind-icon">Read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;R&quot;</span></div>
+					<a name="forcestart" class="tsd-anchor"></a>
+					<h3>Force<wbr>Start</h3>
+					<div class="tsd-signature tsd-kind-icon">Force<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;forcestart&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L7">types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L19">types.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="readwrite" class="tsd-anchor"></a>
-					<h3>Read<wbr>Write</h3>
-					<div class="tsd-signature tsd-kind-icon">Read<wbr>Write<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;Y&quot;</span></div>
+					<a name="pause" class="tsd-anchor"></a>
+					<h3>Pause</h3>
+					<div class="tsd-signature tsd-kind-icon">Pause<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;pause&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L9">types.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L18">types.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="writeonly" class="tsd-anchor"></a>
-					<h3>Write<wbr>Only</h3>
-					<div class="tsd-signature tsd-kind-icon">Write<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;W&quot;</span></div>
+					<a name="recheck" class="tsd-anchor"></a>
+					<h3>Recheck</h3>
+					<div class="tsd-signature tsd-kind-icon">Recheck<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;recheck&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L8">types.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L21">types.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>Remove</h3>
+					<div class="tsd-signature tsd-kind-icon">Remove<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;remove&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L22">types.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="removedata" class="tsd-anchor"></a>
+					<h3>Remove<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;removedata&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L23">types.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="removedatatorrent" class="tsd-anchor"></a>
+					<h3>Remove<wbr>Data<wbr>Torrent</h3>
+					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Data<wbr>Torrent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;removedatatorrent&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L25">types.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="removetorrent" class="tsd-anchor"></a>
+					<h3>Remove<wbr>Torrent</h3>
+					<div class="tsd-signature tsd-kind-icon">Remove<wbr>Torrent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;removetorrent&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L24">types.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="start" class="tsd-anchor"></a>
+					<h3>Start</h3>
+					<div class="tsd-signature tsd-kind-icon">Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;start&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L16">types.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="stop" class="tsd-anchor"></a>
+					<h3>Stop</h3>
+					<div class="tsd-signature tsd-kind-icon">Stop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;stop&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L17">types.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="unpause" class="tsd-anchor"></a>
+					<h3>Unpause</h3>
+					<div class="tsd-signature tsd-kind-icon">Unpause<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;unpause&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L20">types.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -130,27 +207,48 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="access.html" class="tsd-kind-icon">Access</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="access.html" class="tsd-kind-icon">Access</a>
+						<a href="action.html" class="tsd-kind-icon">Action</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a>
+								<a href="action.html#forcestart" class="tsd-kind-icon">Force<wbr>Start</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#readwrite" class="tsd-kind-icon">Read<wbr>Write</a>
+								<a href="action.html#pause" class="tsd-kind-icon">Pause</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#writeonly" class="tsd-kind-icon">Write<wbr>Only</a>
+								<a href="action.html#recheck" class="tsd-kind-icon">Recheck</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#remove" class="tsd-kind-icon">Remove</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#removedata" class="tsd-kind-icon">Remove<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#removedatatorrent" class="tsd-kind-icon">Remove<wbr>Data<wbr>Torrent</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#removetorrent" class="tsd-kind-icon">Remove<wbr>Torrent</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#start" class="tsd-kind-icon">Start</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#stop" class="tsd-kind-icon">Stop</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="action.html#unpause" class="tsd-kind-icon">Unpause</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum">
-						<a href="action.html" class="tsd-kind-icon">Action</a>
-					</li>
 					<li class=" tsd-kind-enum">
 						<a href="priority.html" class="tsd-kind-icon">Priority</a>
 					</li>

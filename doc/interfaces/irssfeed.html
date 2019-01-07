@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Access | utorrent-web-api</title>
+	<title>IRssFeed | utorrent-web-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="access.html">Access</a>
+					<a href="irssfeed.html">IRssFeed</a>
 				</li>
 			</ul>
-			<h1>Enumeration Access</h1>
+			<h1>Interface IRssFeed</h1>
 		</div>
 	</div>
 </header>
@@ -67,54 +67,128 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The possible access settings</p>
+						<p>Represents the RSS feed</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IRssFeed</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#readwrite" class="tsd-kind-icon">Read<wbr>Write</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="access.html#writeonly" class="tsd-kind-icon">Write<wbr>Only</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#download_state" class="tsd-kind-icon">download_<wbr>state</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#enabled" class="tsd-kind-icon">enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#history" class="tsd-kind-icon">history</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#next_update" class="tsd-kind-icon">next_<wbr>update</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#programmed" class="tsd-kind-icon">programmed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#use_feed_title" class="tsd-kind-icon">use_<wbr>feed_<wbr>title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="irssfeed.html#user_selected" class="tsd-kind-icon">user_<wbr>selected</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="readonly" class="tsd-anchor"></a>
-					<h3>Read<wbr>Only</h3>
-					<div class="tsd-signature tsd-kind-icon">Read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;R&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="download_state" class="tsd-anchor"></a>
+					<h3>download_<wbr>state</h3>
+					<div class="tsd-signature tsd-kind-icon">download_<wbr>state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L7">types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L161">types.ts:161</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="readwrite" class="tsd-anchor"></a>
-					<h3>Read<wbr>Write</h3>
-					<div class="tsd-signature tsd-kind-icon">Read<wbr>Write<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;Y&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="enabled" class="tsd-anchor"></a>
+					<h3>enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L9">types.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L157">types.ts:157</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="writeonly" class="tsd-anchor"></a>
-					<h3>Write<wbr>Only</h3>
-					<div class="tsd-signature tsd-kind-icon">Write<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;W&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="history" class="tsd-anchor"></a>
+					<h3>history</h3>
+					<div class="tsd-signature tsd-kind-icon">history<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="irssupdate.html" class="tsd-signature-type">IRssUpdate</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L8">types.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L164">types.ts:164</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L156">types.ts:156</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="next_update" class="tsd-anchor"></a>
+					<h3>next_<wbr>update</h3>
+					<div class="tsd-signature tsd-kind-icon">next_<wbr>update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L163">types.ts:163</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="programmed" class="tsd-anchor"></a>
+					<h3>programmed</h3>
+					<div class="tsd-signature tsd-kind-icon">programmed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L160">types.ts:160</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L162">types.ts:162</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="use_feed_title" class="tsd-anchor"></a>
+					<h3>use_<wbr>feed_<wbr>title</h3>
+					<div class="tsd-signature tsd-kind-icon">use_<wbr>feed_<wbr>title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L158">types.ts:158</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="user_selected" class="tsd-anchor"></a>
+					<h3>user_<wbr>selected</h3>
+					<div class="tsd-signature tsd-kind-icon">user_<wbr>selected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/2701e2b/src/types.ts#L159">types.ts:159</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -130,32 +204,17 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="access.html" class="tsd-kind-icon">Access</a>
-						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#readwrite" class="tsd-kind-icon">Read<wbr>Write</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="access.html#writeonly" class="tsd-kind-icon">Write<wbr>Only</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-enum">
-						<a href="action.html" class="tsd-kind-icon">Action</a>
+						<a href="../enums/access.html" class="tsd-kind-icon">Access</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="priority.html" class="tsd-kind-icon">Priority</a>
+						<a href="../enums/action.html" class="tsd-kind-icon">Action</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="status.html" class="tsd-kind-icon">Status</a>
+						<a href="../enums/priority.html" class="tsd-kind-icon">Priority</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/autherror.html" class="tsd-kind-icon">Auth<wbr>Error</a>
@@ -170,40 +229,73 @@
 						<a href="../classes/utorrenterror.html" class="tsd-kind-icon">u<wbr>Torrent<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/fileinfo.html" class="tsd-kind-icon">File<wbr>Info</a>
+						<a href="fileinfo.html" class="tsd-kind-icon">File<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/filelist.html" class="tsd-kind-icon">File<wbr>List</a>
+						<a href="filelist.html" class="tsd-kind-icon">File<wbr>List</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="irssfeed.html" class="tsd-kind-icon">IRss<wbr>Feed</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#download_state" class="tsd-kind-icon">download_<wbr>state</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#enabled" class="tsd-kind-icon">enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#history" class="tsd-kind-icon">history</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#next_update" class="tsd-kind-icon">next_<wbr>update</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#programmed" class="tsd-kind-icon">programmed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#use_feed_title" class="tsd-kind-icon">use_<wbr>feed_<wbr>title</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="irssfeed.html#user_selected" class="tsd-kind-icon">user_<wbr>selected</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="irssfilter.html" class="tsd-kind-icon">IRss<wbr>Filter</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/irssfeed.html" class="tsd-kind-icon">IRss<wbr>Feed</a>
+						<a href="irssupdate.html" class="tsd-kind-icon">IRss<wbr>Update</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/irssfilter.html" class="tsd-kind-icon">IRss<wbr>Filter</a>
+						<a href="isession.html" class="tsd-kind-icon">ISession</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/irssupdate.html" class="tsd-kind-icon">IRss<wbr>Update</a>
+						<a href="isetting.html" class="tsd-kind-icon">ISetting</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/isession.html" class="tsd-kind-icon">ISession</a>
+						<a href="isettings.html" class="tsd-kind-icon">ISettings</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/isetting.html" class="tsd-kind-icon">ISetting</a>
+						<a href="itorrent.html" class="tsd-kind-icon">ITorrent</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/isettings.html" class="tsd-kind-icon">ISettings</a>
+						<a href="itorrentlist.html" class="tsd-kind-icon">ITorrent<wbr>List</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/itorrent.html" class="tsd-kind-icon">ITorrent</a>
+						<a href="itorrentlistcache.html" class="tsd-kind-icon">ITorrent<wbr>List<wbr>Cache</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/itorrentlist.html" class="tsd-kind-icon">ITorrent<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/itorrentlistcache.html" class="tsd-kind-icon">ITorrent<wbr>List<wbr>Cache</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iversion.html" class="tsd-kind-icon">IVersion</a>
+						<a href="iversion.html" class="tsd-kind-icon">IVersion</a>
 					</li>
 				</ul>
 			</nav>
