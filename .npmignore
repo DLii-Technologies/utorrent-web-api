@@ -1,4 +1,5 @@
 # No need to publish the source code
+doc/
 src/
 test/
 .env

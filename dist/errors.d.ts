@@ -7,12 +7,12 @@ export declare class uTorrentError extends Error {
 /**
  * An authorization error
  */
-export declare class AuthError extends uTorrentError {
+export declare class AuthError extends Error {
     constructor(message?: string);
 }
 /**
  * A token error
  */
-export declare class TokenError extends uTorrentError {
+export declare class TokenError extends Error {
     constructor(message?: string);
 }

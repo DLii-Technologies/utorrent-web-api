@@ -1,70 +1,20 @@
-import request from "request";
-import { TorrentList } from "./types";
-export declare class uTorrent {
+import { UtServer } from "./core/utserver";
+import { ITorrentList } from "./types";
+export declare class uTorrent extends UtServer {
     /**
-     * uTorrent information
+     * Create the torrent cache
      */
-    private __host;
-    private __port;
-    private __token?;
+    private __torrentCache;
     /**
-     * The login credentials
-     */
-    private __credentials;
-    /**
-     * The cookie jar
-     */
-    private __cookieJar;
-    /**
-     * Create a new instance of uTorrent
-     */
-    constructor(host: string, port?: number, username?: string, password?: string);
-    /**
-     * Generate a URL
-     */
-    protected url(path?: string): string;
-    /**
-     * Send a request. If it fails, regenerate the token and try again.
-     */
-    protected request(options: request.CoreOptions & request.UriOptions, retry?: boolean): Promise<string>;
-    /**
-     * Fetch a CSRF token
-     */
-    protected fetchToken(): Promise<string>;
-    /**
-     * Execute an action on uTorrent
-     */
-    protected execute(action: string, params?: any): Promise<string>;
-    /**
-     * Add a torrent via URL
+     * Add a torrent via URL and get its hash
      */
     addUrl(url: string): Promise<string>;
     /**
      * List the torrents currently in uTorrent
      */
-    list(): Promise<TorrentList>;
+    list(): Promise<ITorrentList>;
     /**
-     * Set the connection address
+     * Get the version of uTorrent
      */
-    setAddress(host: string, port: number): this;
-    /**
-     * Set the login credentials
-     */
-    setCredentials(username?: string, password?: string): this;
-    /**
-     * Set the connection host
-     */
-    setHost(host: string): this;
-    /**
-     * Set the login password
-     */
-    setPassword(password?: string): void;
-    /**
-     * Set the connection port
-     */
-    setPort(port: number): this;
-    /**
-     * Set the login username
-     */
-    setUsername(username?: string): void;
+    version(): void;
 }

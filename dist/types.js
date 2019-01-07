@@ -10,6 +10,22 @@ var Access;
     Access["ReadWrite"] = "Y";
 })(Access = exports.Access || (exports.Access = {}));
 /**
+ * Actions that can be performed on a torrent
+ */
+var Action;
+(function (Action) {
+    Action["Start"] = "start";
+    Action["Stop"] = "stop";
+    Action["Pause"] = "pause";
+    Action["ForceStart"] = "forcestart";
+    Action["Unpause"] = "unpause";
+    Action["Recheck"] = "recheck";
+    Action["Remove"] = "remove";
+    Action["RemoveData"] = "removedata";
+    Action["RemoveTorrent"] = "removetorrent";
+    Action["RemoveDataTorrent"] = "removedatatorrent";
+})(Action = exports.Action || (exports.Action = {}));
+/**
  * The possible torrent priorities
  */
 var Priority;
@@ -22,15 +38,15 @@ var Priority;
 /**
  * The possible status bit-flags
  */
-var Status;
-(function (Status) {
-    Status[Status["Started"] = 1] = "Started";
-    Status[Status["Checking"] = 2] = "Checking";
-    Status[Status["StartAfterChecking"] = 4] = "StartAfterChecking";
-    Status[Status["Checked"] = 8] = "Checked";
-    Status[Status["Error"] = 16] = "Error";
-    Status[Status["Paused"] = 32] = "Paused";
-    Status[Status["Queued"] = 64] = "Queued";
-    Status[Status["Loaded"] = 128] = "Loaded";
-})(Status = exports.Status || (exports.Status = {}));
+var TorrentStatus;
+(function (TorrentStatus) {
+    TorrentStatus[TorrentStatus["Started"] = 1] = "Started";
+    TorrentStatus[TorrentStatus["Checking"] = 2] = "Checking";
+    TorrentStatus[TorrentStatus["StartAfterChecking"] = 4] = "StartAfterChecking";
+    TorrentStatus[TorrentStatus["Checked"] = 8] = "Checked";
+    TorrentStatus[TorrentStatus["Error"] = 16] = "Error";
+    TorrentStatus[TorrentStatus["Paused"] = 32] = "Paused";
+    TorrentStatus[TorrentStatus["Queued"] = 64] = "Queued";
+    TorrentStatus[TorrentStatus["Loaded"] = 128] = "Loaded";
+})(TorrentStatus = exports.TorrentStatus || (exports.TorrentStatus = {}));
 //# sourceMappingURL=types.js.map

@@ -1,3 +1,4 @@
+import { Torrent } from "./models/torrent";
 /**
  * The possible access settings
  */
@@ -5,6 +6,21 @@ export declare enum Access {
     ReadOnly = "R",
     WriteOnly = "W",
     ReadWrite = "Y"
+}
+/**
+ * Actions that can be performed on a torrent
+ */
+export declare enum Action {
+    Start = "start",
+    Stop = "stop",
+    Pause = "pause",
+    ForceStart = "forcestart",
+    Unpause = "unpause",
+    Recheck = "recheck",
+    Remove = "remove",
+    RemoveData = "removedata",
+    RemoveTorrent = "removetorrent",
+    RemoveDataTorrent = "removedatatorrent"
 }
 /**
  * The possible torrent priorities
@@ -18,7 +34,7 @@ export declare enum Priority {
 /**
  * The possible status bit-flags
  */
-export declare enum Status {
+export declare enum TorrentStatus {
     Started = 1,
     Checking = 2,
     StartAfterChecking = 4,
@@ -29,17 +45,62 @@ export declare enum Status {
     Loaded = 128
 }
 /**
+ * Contains the version info of the current uTorrent instance
+ */
+export interface IVersion {
+    product_code: string;
+    ui_version: string;
+    engine_version: string;
+    major_version: string;
+    minor_version: string;
+    user_agent: string;
+    version_date: string;
+    device_id: string;
+    peer_id: string;
+}
+/**
+ * A single uTorrent setting
+ */
+export interface ISetting {
+    type: Boolean | String | Number;
+    value: boolean | string | number;
+    access: Access;
+}
+/**
+ * The current uTorrent settings
+ */
+export interface ISettings {
+    build: number;
+    settings: {
+        [name: string]: ISetting;
+    };
+}
+/**
+ * Represents a user session
+ */
+export interface ISession {
+    guid: string;
+    created: Date;
+    updated: Date;
+    peer_ip: string;
+    sock_ip: string;
+    reported_ip: string;
+    user_agent: string;
+    remote: boolean;
+    custom: string;
+}
+/**
  * A container for a listed torrent
  */
-export interface Torrent {
+export interface ITorrent {
     hash: string;
-    status: Status;
+    status: TorrentStatus;
     name: string;
     size: number;
     progress: number;
     downloaded: number;
     uploaded: number;
-    up_down_ratio: number;
+    ratio: number;
     upload_speed: number;
     download_speed: number;
     time_remaining: number;
@@ -54,14 +115,14 @@ export interface Torrent {
     rss_feed_url: string;
     status_message: string;
     stream_id: string;
-    date_added: Date;
-    date_completed: Date | null;
+    date_added: number;
+    date_completed: number;
     app_update_url: string;
 }
 /**
  * Represents an RSS feed update
  */
-export interface RssUpdate {
+export interface IRssUpdate {
     name: string;
     name_full: string;
     url: string;
@@ -78,7 +139,7 @@ export interface RssUpdate {
 /**
  * Represents the RSS feed
  */
-export interface RssFeed {
+export interface IRssFeed {
     id: number;
     enabled: boolean;
     use_feed_title: boolean;
@@ -87,12 +148,12 @@ export interface RssFeed {
     download_state: number;
     url: string;
     next_update: number;
-    history: Array<RssUpdate>;
+    history: Array<IRssUpdate>;
 }
 /**
  * Represents an RSS filter
  */
-export interface RssFilter {
+export interface IRssFilter {
     id: number;
     flags: number;
     name: string;
@@ -113,11 +174,12 @@ export interface RssFilter {
 /**
  * Represents the torrent list returned by uTorrent
  */
-export interface TorrentList {
-    build: number;
-    torrents: Array<Torrent>;
-    rss_feeds: Array<RssFeed>;
-    rss_filters: Array<RssFilter>;
+export interface ITorrentList {
+    torrents: {
+        [hash: string]: Torrent;
+    };
+    rss_feeds: Array<IRssFeed>;
+    rss_filters: Array<IRssFilter>;
     cache_id: string | number;
     labels: {
         [key: string]: number;
@@ -126,19 +188,18 @@ export interface TorrentList {
 /**
  * Represents the torrent list returned by uTorrent when using a cache ID
  */
-export interface TorrentListCache {
-    build: number;
+export interface ITorrentListCache {
     cache_id: string | number;
     torrents: {
-        changed: Array<Torrent>;
+        changed: Array<ITorrent>;
         removed: Array<string>;
     };
     rss_feeds: {
-        changed: Array<RssFeed>;
+        changed: Array<IRssFeed>;
         removed: Array<number>;
     };
     rss_filters: {
-        change: Array<RssFilter>;
+        change: Array<IRssFilter>;
         removed: Array<number>;
     };
 }
@@ -149,7 +210,7 @@ export interface FileInfo {
     name: string;
     size: number;
     downloaded: number;
-    priority: number;
+    priority: Priority;
     first_piece: number;
     num_pieces: number;
     streamable: boolean;
@@ -164,7 +225,6 @@ export interface FileInfo {
  * Represents a file list for a torrent returned by uTorrent
  */
 export interface FileList {
-    build: number;
     hash: string;
     files: Array<FileInfo>;
 }

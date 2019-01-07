@@ -5,5 +5,6 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./errors"));
 __export(require("./types"));
+__export(require("./models/torrent"));
 __export(require("./utorrent"));
 //# sourceMappingURL=index.js.map

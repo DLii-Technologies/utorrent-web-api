@@ -1,17 +1,13 @@
-import { RssFilter, RssFeed, RssUpdate, Torrent } from "./types";
+import { IRssFilter, IRssFeed, IRssUpdate } from "./types";
 /**
  * Parse an array of raw uTorrent RSS updates into the new format
  */
-export declare function rssUpdates(updates: Array<any>): RssUpdate[];
+export declare function rssUpdates(updates: Array<any>): IRssUpdate[];
 /**
  * Parse an array of raw uTorrent RSS feeds into the new format
  */
-export declare function rssFeeds(feeds: Array<any>): RssFeed[];
+export declare function rssFeeds(feeds: Array<any>): IRssFeed[];
 /**
  * Parse an array of raw uTorrent RSS feeds into the new format
  */
-export declare function rssFilters(filters: Array<any>): RssFilter[];
-/**
- * Parse an array of raw uTorrent torrents into the new format
- */
-export declare function torrents(torrents: Array<any>): Torrent[];
+export declare function rssFilters(filters: Array<any>): IRssFilter[];

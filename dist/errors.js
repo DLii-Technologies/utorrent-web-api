@@ -13,7 +13,7 @@ exports.uTorrentError = uTorrentError;
 /**
  * An authorization error
  */
-class AuthError extends uTorrentError {
+class AuthError extends Error {
     constructor(message) {
         super(message);
         Object.setPrototypeOf(this, new.target.prototype);
@@ -23,7 +23,7 @@ exports.AuthError = AuthError;
 /**
  * A token error
  */
-class TokenError extends uTorrentError {
+class TokenError extends Error {
     constructor(message) {
         super(message);
         Object.setPrototypeOf(this, new.target.prototype);
