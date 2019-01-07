@@ -29,7 +29,7 @@ Torrents can be added by .torrent URL, magnet link, or file upload.
 
 ```js
 // Add a torrent via .torrent URL or magnet link
-utorrent.addUrl().then((infoHash) => {
+utorrent.addUrl(url).then((infoHash) => {
     console.log("Success! Info hash:", infoHash);
 }).catch((err) => {
     console.error("Failed to add the torrent:", err);
@@ -51,7 +51,7 @@ utorrent.list().then((result) => {
     myAddedTorrent = result.torrents[infoHash];
 
     // Iterate over all torrents
-    for (let torrent of result.torrents) {
+    for (let hash in result.torrents) {
         // Do something with the torrent
     }
 }).catch((err) => {
