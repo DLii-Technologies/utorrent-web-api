@@ -16,7 +16,7 @@ Some neat examples to show the simplicity and power of the API.
 
 Creating a new uTorrent client instance is easy!
 
-```js
+```ts
 import { uTorrent } from "utorrent-web-api";
 
 // Create an instance of the client
@@ -71,7 +71,7 @@ if (myAddedTorrent.status & TorrentStatus.Paused) {
 
 // Refresh the torrent
 myAddedTorrent.refresh().then(() => {
-    console.log("Torrent refreshed successfully);
+    console.log("Torrent refreshed successfully");
 });
 
 // Pause the torrent
