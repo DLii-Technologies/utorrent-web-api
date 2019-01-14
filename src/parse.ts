@@ -1,8 +1,7 @@
 import {
 	IRssFilter,
 	IRssFeed,
-	IRssUpdate,
-	ITorrent
+	IRssUpdate
 } from "./types";
 
 /**

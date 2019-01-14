@@ -10,7 +10,7 @@ config();
 /**
  * Import the items
  */
-import * as Api from "../src";
+import * as Api          from "../src";
 import { TorrentStatus } from "../src";
 
 /**

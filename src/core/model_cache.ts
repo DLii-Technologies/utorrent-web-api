@@ -1,6 +1,4 @@
-import { Model }    from "./model";
-import { uTorrent } from "utorrent";
-import { Torrent } from "models/torrent";
+import { Model } from "./model";
 
 /**
  * A cache used to add new, update existing, and remove unused object instances.

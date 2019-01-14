@@ -1,5 +1,5 @@
-import { Model }            from "../core/model";
-import { ITorrent, Action } from "../types";
+import { Model }    from "../core/model";
+import { ITorrent } from "../types";
 
 export enum RemoveFlag {
 	JobOnly     = 0,
