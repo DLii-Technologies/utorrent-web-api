@@ -31,7 +31,7 @@ var utorrent = new Api.uTorrent(
 /**
  * Use to store a torrent
  */
-let torrentHash: string = "49E74B914876AD23503291A3CBCCC3B58DB339E7";
+let torrentHash: string;
 let torrent    : Api.Torrent;
 let file       : Api.File;
 
