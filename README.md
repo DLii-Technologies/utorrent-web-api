@@ -1,6 +1,11 @@
 # utorrent-web-api
 
-A powerful and complete implementation of the uTorrent Web API. It is compitable with both Javascript and Typescript!
+[![](https://img.shields.io/npm/v/utorrent-web-api.svg)](https://npmjs.org/package/utorrent-web-api)
+[![](https://img.shields.io/npm/dm/utorrent-web-api.svg)](https://npmjs.org/package/utorrent-web-api)
+
+A powerful and complete implementation of the uTorrent Web API. It is compatible with both Javascript and TypeScript!
+
+**Note:** This library is a work in progress, so not all features may be available.
 
 ## Installation
 
