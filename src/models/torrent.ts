@@ -1,5 +1,8 @@
-import { Model }    from "../core/model";
-import { ITorrent } from "../types";
+import { Model }               from "./model";
+import { ITorrent, IFileList, Priority, Action } from "../types";
+import { ModelCache }          from "../core/model_cache";
+import { File }                from "./file";
+import { uTorrent } from "utorrent";
 
 export enum RemoveFlag {
 	JobOnly     = 0,
@@ -10,14 +13,29 @@ export enum RemoveFlag {
 export class Torrent extends Model
 {
 	/**
+	 * Store the uTorrent instance
+	 */
+	private __utorrent: uTorrent;
+
+	/**
 	 * Store all of the torrent information
 	 */
 	private __torrent!: ITorrent;
 
 	/**
+	 * Store the associated files
+	 */
+	private __fileCache = new ModelCache<File>(File, this);
+
+	constructor (utorrent: uTorrent) {
+		super();
+		this.__utorrent = utorrent;
+	}
+
+	/**
 	 * Update the corrent information
 	 */
-	public setData (info: any) {
+	__setData (info: any) {
 		this.__torrent  = {
 			hash           : info[0],
 			status         : info[1],
@@ -47,13 +65,62 @@ export class Torrent extends Model
 		};
 	}
 
+	/**
+	 * Update the file data and return the files
+	 */
+	__setFileData (info: Array<any[]>) {
+		let files = [];
+		for (let i = 0; i < info.length; i++) {
+			let finalData = [i].concat(info[i]);
+			files.push(finalData);
+		}
+		return this.__fileCache.update(files).all();
+	}
+
+	/**
+	 * Get the files associated with the torrent
+	 */
+	public files () {
+		return new Promise<Array<File>>((resolve, reject) => {
+			this.__utorrent.files(this).then((files) => {
+				resolve(files[this.hash]);
+			}).catch(reject);
+		});
+	}
+
+	/**
+	 * Set the priority of the given file(s)
+	 */
+	public setFilePriority (files: File | Array<File>, priority: Priority) {
+		let indices: Array<number> = [];
+		if (Array.isArray(files)) {
+			for (let file of files) {
+				indices.push(file.id);
+			}
+		} else {
+			indices.push(files.id);
+		}
+		return new Promise<void>((resolve, reject) => {
+			this.__utorrent.execute(Action.SetFilePriority, {
+				hash: this.hash,
+				f: indices,
+				p: priority
+			}).then(() => {
+				for (let index of indices) {
+					this.__fileCache.fetch(index).__setPriority(priority);
+				}
+				resolve();
+			}).catch(reject);
+		});
+	}
+
 	// Methods -------------------------------------------------------------------------------------
 
 	/**
 	 * Pause the torrent
 	 */
 	public pause () {
-		return this.utorrent().pause(this);
+		return this.__utorrent.pause(this);
 	}
 
 	/**
@@ -61,7 +128,7 @@ export class Torrent extends Model
 	 */
 	public refresh () {
 		return new Promise<void>((resolve, reject) => {
-			this.utorrent().refresh().then(resolve).catch(reject);
+			this.__utorrent.refresh().then(resolve).catch(reject);
 		});
 	}
 
@@ -69,28 +136,28 @@ export class Torrent extends Model
 	 * Remove the torrent from uTorrent
 	 */
 	public remove (flags: RemoveFlag = RemoveFlag.JobOnly) {
-		return this.utorrent().remove(this, flags);
+		return this.__utorrent.remove(this, flags);
 	}
 
 	/**
 	 * Start the torrent
 	 */
 	public start (force: boolean = false) {
-		return this.utorrent().start(this, force);
+		return this.__utorrent.start(this, force);
 	}
 
 	/**
 	 * Stop the torrent
 	 */
 	public stop () {
-		return this.utorrent().stop(this);
+		return this.__utorrent.stop(this);
 	}
 
 	/**
 	 * Unpause the torrent
 	 */
 	public unpause () {
-		return this.utorrent().unpause(this);
+		return this.__utorrent.unpause(this);
 	}
 
 	// Accessors -----------------------------------------------------------------------------------
@@ -113,14 +180,14 @@ export class Torrent extends Model
 	 * Get the date the torrent was added
 	 */
 	get dateAdded () {
-		return this.__torrent.date_added;
+		return new Date(this.__torrent.date_added);
 	}
 
 	/**
 	 * Get the date the torrent was completed
 	 */
 	get dateCompleted () {
-		return this.__torrent.date_completed;
+		return new Date(this.__torrent.date_completed);
 	}
 
 	/**
@@ -149,13 +216,6 @@ export class Torrent extends Model
 	 */
 	get eta () {
 		return this.__torrent.time_remaining;
-	}
-
-	/**
-	 * Fetch the files associated with the torrent
-	 */
-	get files () {
-		return undefined;
 	}
 
 	/**

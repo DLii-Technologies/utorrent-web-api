@@ -92,6 +92,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="utorrent.html#addurl" class="tsd-kind-icon">add<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="utorrent.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="utorrent.html#files" class="tsd-kind-icon">files</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="utorrent.html#list" class="tsd-kind-icon">list</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="utorrent.html#pause" class="tsd-kind-icon">pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="utorrent.html#refresh" class="tsd-kind-icon">refresh</a></li>
@@ -124,7 +125,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L27">core/utserver.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L27">core/utserver.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L53">utorrent.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L64">utorrent.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -193,7 +194,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.execute</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L107">core/utserver.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L107">core/utserver.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,6 +216,34 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="files" class="tsd-anchor"></a>
+					<h3>files</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">(</span>torrents<span class="tsd-signature-symbol">: </span><a href="../globals.html#torrentinput" class="tsd-signature-type">TorrentInput</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ifilelist.html" class="tsd-signature-type">IFileList</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L95">utorrent.ts:95</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the files associated with a torrent</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>torrents: <a href="../globals.html#torrentinput" class="tsd-signature-type">TorrentInput</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ifilelist.html" class="tsd-signature-type">IFileList</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="list" class="tsd-anchor"></a>
 					<h3>list</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -224,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L66">utorrent.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L77">utorrent.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,7 +275,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L84">utorrent.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L114">utorrent.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -274,12 +303,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L91">utorrent.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L121">utorrent.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Refresh the torrents</p>
+									<p>Refresh the torrent list</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -296,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L104">utorrent.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L134">utorrent.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +360,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setAddress</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L126">core/utserver.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L126">core/utserver.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,7 +392,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setCredentials</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L135">core/utserver.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L135">core/utserver.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,7 +424,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setHost</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L144">core/utserver.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L144">core/utserver.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -424,7 +453,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setPassword</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L152">core/utserver.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L152">core/utserver.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -453,7 +482,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setPort</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L159">core/utserver.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L159">core/utserver.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -482,7 +511,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from UtServer.setUsername</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/core/utserver.ts#L167">core/utserver.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/core/utserver.ts#L167">core/utserver.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -510,7 +539,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L120">utorrent.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L150">utorrent.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +570,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L130">utorrent.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L160">utorrent.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -569,7 +598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L137">utorrent.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L167">utorrent.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -597,7 +626,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/c0ef7fe/src/utorrent.ts#L144">utorrent.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/DLii-Technologies/utorrent-web-api/blob/a703727/src/utorrent.ts#L174">utorrent.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -640,6 +669,12 @@
 						<a href="autherror.html" class="tsd-kind-icon">Auth<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="file.html" class="tsd-kind-icon">File</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="model.html" class="tsd-kind-icon">Model</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="tokenerror.html" class="tsd-kind-icon">Token<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -658,6 +693,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="utorrent.html#execute" class="tsd-kind-icon">execute</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="utorrent.html#files" class="tsd-kind-icon">files</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="utorrent.html#list" class="tsd-kind-icon">list</a>
@@ -710,6 +748,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/ifile.html" class="tsd-kind-icon">IFile</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ifilelist.html" class="tsd-kind-icon">IFile<wbr>List</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/irssfeed.html" class="tsd-kind-icon">IRss<wbr>Feed</a>

@@ -1,4 +1,4 @@
-import { Model } from "./model";
+import { Model } from "../models/model";
 
 /**
  * A cache used to add new, update existing, and remove unused object instances.
@@ -50,7 +50,7 @@ export class ModelCache<T extends Model>
 	 * If it doesn't exist, create it
 	 * (Assumes first item in data is ID)
 	 */
-	fetch (id: string) {
+	fetch (id: number|string) {
 		let item = this.__set[id];
 		if (item === undefined) {
 			item = this.create(this.__model, this.__args);
@@ -66,7 +66,7 @@ export class ModelCache<T extends Model>
 		let ids = Object.assign({}, this.__set);
 		for (let modelData of data) {
 			let item = this.fetch(modelData[0]);
-			item.setData(modelData);
+			item.__setData(modelData);
 			delete ids[modelData[0]];
 		}
 		for (let id in ids) {

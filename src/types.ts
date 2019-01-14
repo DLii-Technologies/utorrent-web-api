@@ -1,4 +1,5 @@
 import { Torrent } from "./models/torrent";
+import { File } from "models/file";
 
 /**
  * Torrent input
@@ -244,6 +245,7 @@ export interface ITorrentListCache {
  * Represents a single file's information from a torrent
  */
 export interface IFile {
+	id           : number,
 	name         : string,
 	size         : number,
 	downloaded   : number,
@@ -262,8 +264,7 @@ export interface IFile {
 /**
  * Represents a file list for a torrent returned by uTorrent
  */
-// export interface IFileList {
-// 	hash : string,
-// 	files: Array<FileInfo>
-// }
+export interface IFileList {
+	[torrentHash: string]: Array<File>
+}
 

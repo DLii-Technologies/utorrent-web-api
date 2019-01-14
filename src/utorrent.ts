@@ -6,8 +6,11 @@ import { UtServer }            from "./core/utserver";
 import {
 	ITorrentList,
 	Action,
-	TorrentInput
+	TorrentInput,
+	Priority,
+	IFileList
 } from "./types";
+import { File } from "models/file";
 
 export class uTorrent extends UtServer
 {
@@ -17,9 +20,9 @@ export class uTorrent extends UtServer
 	private __torrentCache = new ModelCache<Torrent>(Torrent, this);
 
 	/**
-	 * Execute an action on a list of torrents and update them
+	 * Parse the torrent input
 	 */
-	protected executeTorrentAction (torrents: TorrentInput, action: Action) {
+	protected parseTorrentInput (torrents: TorrentInput) {
 		let hashes: Array<string> = [];
 		if (Array.isArray(torrents)) {
 			for (let torrent of torrents) {
@@ -36,6 +39,14 @@ export class uTorrent extends UtServer
 		} else {
 			hashes = Object.keys(torrents.torrents);
 		}
+		return hashes;
+	}
+
+	/**
+	 * Execute an action on a list of torrents and update them
+	 */
+	protected executeTorrentAction (torrents: TorrentInput, action: Action) {
+		let hashes = this.parseTorrentInput(torrents);
 		return new Promise<void>((resolve, reject) => {
 			this.execute(action, { hash: hashes, list: 1}).then((body) => {
 				let torrents = JSON.parse(body)["torrents"];
@@ -79,6 +90,25 @@ export class uTorrent extends UtServer
 	}
 
 	/**
+	 * Get the files associated with a torrent
+	 */
+	public files (torrents: TorrentInput) {
+		let hashes = this.parseTorrentInput(torrents);
+		return new Promise<IFileList>((resolve, reject) => {
+			this.execute(Action.GetFiles, { hash: hashes }).then((body) => {
+				let result: IFileList = {};
+				let fileInfo = JSON.parse(body)["files"];
+				// 0 => hash, 1 => data, 2 => hash, 3 => data...
+				for (let i = 0; i < fileInfo.length; i += 2) {
+					let torrent = this.__torrentCache.fetch(fileInfo[i]);
+					result[torrent.hash] = Object.values(torrent.__setFileData(fileInfo[i+1]));
+				}
+				resolve(result);
+			}).catch(reject);
+		});
+	}
+
+	/**
 	 * Pause the torrent
 	 */
 	public pause (torrents: TorrentInput) {
@@ -86,7 +116,7 @@ export class uTorrent extends UtServer
 	}
 
 	/**
-	 * Refresh the torrents
+	 * Refresh the torrent list
 	 */
 	public refresh () {
 		return new Promise<void>((resolve, reject) => {

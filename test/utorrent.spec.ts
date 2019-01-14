@@ -11,7 +11,7 @@ config();
  * Import the items
  */
 import * as Api          from "../src";
-import { TorrentStatus } from "../src";
+import { Priority } from "../src";
 
 /**
  * Ubuntu 18.10 Server ISO
@@ -31,8 +31,9 @@ var utorrent = new Api.uTorrent(
 /**
  * Use to store a torrent
  */
-let torrentHash: string;
+let torrentHash: string = "49E74B914876AD23503291A3CBCCC3B58DB339E7";
 let torrent    : Api.Torrent;
+let file       : Api.File;
 
 /**
  * Test it out!
@@ -67,7 +68,7 @@ describe("uTorrent", () => {
 	});
 
 	it("Torrent should not be paused", () => {
-		expect(torrent.status & TorrentStatus.Paused).to.equal(0);
+		expect(torrent.status & Api.TorrentStatus.Paused).to.equal(0);
 	});
 
 	it("Pause the added torrent", () => {
@@ -75,16 +76,25 @@ describe("uTorrent", () => {
 	});
 
 	it("Torrent should now be paused", () => {
-		expect(torrent.status & TorrentStatus.Paused).to.equal(TorrentStatus.Paused);
+		expect(torrent.status & Api.TorrentStatus.Paused).to.equal(Api.TorrentStatus.Paused);
 	});
 
-	it("Resume the added torrent", () => {
-		return torrent.unpause();
-	});
-
-	it("Resume all torrents", () => {
-		return utorrent.list().then((torrents) => {
-			utorrent.unpause(torrents);
+	it("Fetch files associated with torrent", () => {
+		return torrent.files().then((files) => {
+			file = files[0];
 		});
+	});
+
+	it("Increase the priority", () => {
+		expect(file.priority).to.equal(Priority.Normal);
+		return file.setPriority(Priority.High);
+	});
+
+	it("Priority should be high", () => {
+		expect(file.priority).to.equal(Priority.High);
+	});
+
+	it("Refresh the files associated with the torrent", () => {
+		return file.refresh();
 	});
 });
