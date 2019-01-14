@@ -95,6 +95,28 @@ myAddedTorrent.remove(RemoveFlag.WithTorrent | RemoveFlag.WithData).then(() => {
 });
 ```
 
+### Downloaded Files
+
+It's a peace of cake to manage downloading or downloaded files with the API! You can check on their progress and manage their priority.
+
+```ts
+// Fetch the files
+myTorrent.files().then((fileArray) => {
+    for (let file of fileArray) {
+        console.log("Name:", file.name, "; Progress:", file.progress * 100);
+    }
+});
+
+// Set a file's download priority
+file.setPriority(Priority.Skip).then(() => {
+    console.log("This file will not be downloaded...");
+});
+
+// Set the priority of multiple files at once
+myTorrent.setFilePriority(myTorrentFiles, Priority.High).then(() => {
+    console.log("The files specified have been set");
+});
+```
 
 ## Documentation
 
