@@ -1,6 +1,11 @@
 import { Torrent } from "./models/torrent";
 
 /**
+ * Torrent input
+ */
+export type TorrentInput = Torrent | string | Array<Torrent | string> | ITorrentList;
+
+/**
  * The possible access settings
  */
 export enum Access {
@@ -10,19 +15,32 @@ export enum Access {
 }
 
 /**
- * Actions that can be performed on a torrent
+ * Defined actions
  */
 export enum Action {
-	Start             = "start",
-	Stop              = "stop",
-	Pause             = "pause",
-	ForceStart        = "forcestart",
-	Unpause           = "unpause",
-	Recheck           = "recheck",
-	Remove            = "remove",
-	RemoveData        = "removedata",
-	RemoveTorrent     = "removetorrent",
-	RemoveDataTorrent = "removedatatorrent"
+	AddFile              = "add-file",
+	AddUrl               = "add-url",
+	ConfigureRemote      = "configureremote",
+	ForceStart           = "forcestart",
+	GetFiles             = "getfiles",
+	GetSessions          = "getsessions",
+	GetSettings          = "getsettings",
+	GetTransferHistory   = "getxferhist",
+	List                 = "list",
+	ListDirectories      = "list-dirs",
+	Logout               = "logout",
+	Pause                = "pause",
+	Recheck              = "recheck",
+	Remove               = "remove",
+	RemoveData           = "removedata",
+	RemoveTorrent        = "removetorrent",
+	RemoveTorrentData    = "removetorrentdata",
+	ResetTransferHistory = "resetxferhist",
+	SetFilePriority      = "setprio",
+	SetSetting           = "setsetting",
+	Start                = "start",
+	Stop                 = "stop",
+	Unpause              = "unpause"
 }
 
 /**
@@ -225,7 +243,7 @@ export interface ITorrentListCache {
 /**
  * Represents a single file's information from a torrent
  */
-export interface FileInfo {
+export interface IFile {
 	name         : string,
 	size         : number,
 	downloaded   : number,
@@ -244,8 +262,8 @@ export interface FileInfo {
 /**
  * Represents a file list for a torrent returned by uTorrent
  */
-export interface FileList {
-	hash : string,
-	files: Array<FileInfo>
-}
+// export interface IFileList {
+// 	hash : string,
+// 	files: Array<FileInfo>
+// }
 

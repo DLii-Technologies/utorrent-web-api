@@ -64,23 +64,68 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="utorrent-web-api">utorrent-web-api</h1>
 				<p>A powerful and complete implementation of the uTorrent Web API. It is compitable with both Javascript and Typescript!</p>
-				<h2 id="example">Example</h2>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { uTorrent } <span class="hljs-keyword">from</span> <span class="hljs-string">"utorrent-web-api"</span>;
-
-<span class="hljs-comment">// Create an instance of the client</span>
-<span class="hljs-keyword">var</span> utorrent = <span class="hljs-keyword">new</span> uTorrent(host, port, username, password);
-
-<span class="hljs-comment">// Add a torrent via URL</span>
-utorrent.addUrl(magnetOrUrl).then(<span class="hljs-function">(<span class="hljs-params">hash</span>) =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"The torrent's hash is:"</span>, hash);
-});
-
-<span class="hljs-comment">// List all torrents</span>
-utorrent.list().then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Number of torrents:"</span>, result.torrents.length);
-});</code></pre>
 				<h2 id="installation">Installation</h2>
 				<pre><code class="language-sh">npm i utorrent-web-api</code></pre>
+				<h2 id="examples">Examples</h2>
+				<p>Some neat examples to show the simplicity and power of the API.</p>
+				<h3 id="create-a-client">Create a Client</h3>
+				<p>Creating a new uTorrent client instance is easy!</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { uTorrent } <span class="hljs-keyword">from</span> <span class="hljs-string">"utorrent-web-api"</span>;
+
+<span class="hljs-comment">// Create an instance of the client</span>
+<span class="hljs-keyword">let</span> utorrent = <span class="hljs-keyword">new</span> uTorrent(host, port, username, password);</code></pre>
+				<h3 id="add-torrents">Add Torrents</h3>
+				<p>Torrents can be added by .torrent URL, magnet link, or file upload.</p>
+				<pre><code class="language-js"><span class="hljs-comment">// Add a torrent via .torrent URL or magnet link</span>
+utorrent.addUrl(url).then(<span class="hljs-function">(<span class="hljs-params">infoHash</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Success! Info hash:"</span>, infoHash);
+}).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Failed to add the torrent:"</span>, err);
+});
+
+<span class="hljs-comment">// Add a torrent via .torrent file upload</span>
+[WORK IN PROGRESS]</code></pre>
+				<h3 id="list-torrents">List Torrents</h3>
+				<p>It&#39;s easy to get the list of torrents currently in uTorrent!</p>
+				<pre><code class="language-js"><span class="hljs-keyword">let</span> myAddedTorrent;
+
+utorrent.list().then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+    <span class="hljs-comment">// Find the added torrent and save it</span>
+    myAddedTorrent = result.torrents[infoHash];
+
+    <span class="hljs-comment">// Iterate over all torrents</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> hash <span class="hljs-keyword">in</span> result.torrents) {
+        <span class="hljs-comment">// Do something with the torrent</span>
+    }
+}).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Failed to list torrents"</span>, err);
+});</code></pre>
+				<h3 id="working-with-torrents">Working with Torrents</h3>
+				<p>Once you have a torrent object, you can use that object to work with the torrent directly. Each time an action is performed, it will update all of its attributes with the latest information from the server. View the full Torrent documentation here: <a href="https://doc.dlii.tech/utorrent-web-api/classes/torrent.html">Torrent Docs</a></p>
+				<pre><code class="language-js"><span class="hljs-comment">// Check if the torrent status indicates it's paused</span>
+<span class="hljs-keyword">if</span> (myAddedTorrent.status &amp; TorrentStatus.Paused) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"It is paused!"</span>);
+}
+
+<span class="hljs-comment">// Refresh the torrent</span>
+myAddedTorrent.refresh().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Torrent refreshed successfully"</span>);
+});
+
+<span class="hljs-comment">// Pause the torrent</span>
+myAddedTorrent.pause().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Paused successfully"</span>);
+});
+
+<span class="hljs-comment">// Start the torrent</span>
+myAddedTorrent.start().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Started successfully"</span>);
+});
+
+<span class="hljs-comment">// Delete the torrent with its data</span>
+myAddedTorrent.remove(RemoveFlag.WithTorrent | RemoveFlag.WithData).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Removed successfully"</span>);
+});</code></pre>
 				<h2 id="documentation">Documentation</h2>
 				<p><a href="https://doc.dlii.tech/utorrent-web-api">Full Documention</a> can be found here</p>
 			</div>
@@ -126,10 +171,7 @@ utorrent.list().then(<span class="hljs-function">(<span class="hljs-params">resu
 						<a href="classes/utorrenterror.html" class="tsd-kind-icon">u<wbr>Torrent<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/fileinfo.html" class="tsd-kind-icon">File<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/filelist.html" class="tsd-kind-icon">File<wbr>List</a>
+						<a href="interfaces/ifile.html" class="tsd-kind-icon">IFile</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/irssfeed.html" class="tsd-kind-icon">IRss<wbr>Feed</a>
@@ -160,6 +202,9 @@ utorrent.list().then(<span class="hljs-function">(<span class="hljs-params">resu
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iversion.html" class="tsd-kind-icon">IVersion</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#torrentinput" class="tsd-kind-icon">Torrent<wbr>Input</a>
 					</li>
 				</ul>
 			</nav>

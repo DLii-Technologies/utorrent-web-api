@@ -1,3 +1,6 @@
+import { TorrentInput } from "types";
+import { Torrent } from "models/torrent";
+
 /**
  * Type mappings are currently broken... Use standard JavaScript for new.
  */

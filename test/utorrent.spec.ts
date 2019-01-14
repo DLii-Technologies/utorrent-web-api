@@ -40,7 +40,7 @@ let torrent    : Api.Torrent;
 describe("uTorrent", () => {
 	it("Fail first request, regenerate token, try again", () => {
 		return utorrent.list();
-	})
+	});
 
 	it("Added torrent via URL, and fetch the hash", () => {
 		return utorrent.addUrl(TORRENT_URL).then((hash) => {
@@ -76,9 +76,15 @@ describe("uTorrent", () => {
 
 	it("Torrent should now be paused", () => {
 		expect(torrent.status & TorrentStatus.Paused).to.equal(TorrentStatus.Paused);
-	})
+	});
 
 	it("Resume the added torrent", () => {
 		return torrent.unpause();
+	});
+
+	it("Resume all torrents", () => {
+		return utorrent.list().then((torrents) => {
+			utorrent.unpause(torrents);
+		});
 	});
 });

@@ -1,6 +1,5 @@
-import { Model }         from "../core/model";
-import { ITorrent }      from "../types";
-import { uTorrentError } from "../errors";
+import { Model }            from "../core/model";
+import { ITorrent, Action } from "../types";
 
 export enum RemoveFlag {
 	JobOnly     = 0,
@@ -48,33 +47,13 @@ export class Torrent extends Model
 		};
 	}
 
-	/**
-	 * Execute a generic action
-	 */
-	protected execute (action: string) {
-		// Don't return the response of the execution.
-		return new Promise<void>((resolve, reject) => {
-			this.utorrent().execute(action, {hash: this.__torrent.hash, list: 1}).then((body) => {
-				let torrents = JSON.parse(body)["torrents"];
-				for (let torrent of torrents) {
-					if (torrent[0] == this.hash) {
-						this.setData(torrent);
-						resolve();
-						return;
-					}
-				}
-				throw new uTorrentError(`Torrent not found: ${this.hash}`);
-			}).catch(reject);
-		});
-	}
-
 	// Methods -------------------------------------------------------------------------------------
 
 	/**
 	 * Pause the torrent
 	 */
 	public pause () {
-		return this.execute("pause");
+		return this.utorrent().pause(this);
 	}
 
 	/**
@@ -82,9 +61,7 @@ export class Torrent extends Model
 	 */
 	public refresh () {
 		return new Promise<void>((resolve, reject) => {
-			this.utorrent().list().then(() => {
-				resolve();
-			}).catch(reject);
+			this.utorrent().refresh().then(resolve).catch(reject);
 		});
 	}
 
@@ -92,37 +69,28 @@ export class Torrent extends Model
 	 * Remove the torrent from uTorrent
 	 */
 	public remove (flags: RemoveFlag = RemoveFlag.JobOnly) {
-		switch (flags) {
-			case RemoveFlag.WithTorrent:
-				return this.execute("removetorrent");
-			case RemoveFlag.WithData:
-				return this.execute("removedata");
-			case RemoveFlag.WithTorrent | RemoveFlag.WithData:
-				return this.execute("removetorrentdata");
-			default:
-				return this.execute("remove");
-		}
+		return this.utorrent().remove(this, flags);
 	}
 
 	/**
 	 * Start the torrent
 	 */
 	public start (force: boolean = false) {
-		return this.execute(`${force ? "force" : ""}"start"`);
+		return this.utorrent().start(this, force);
 	}
 
 	/**
 	 * Stop the torrent
 	 */
 	public stop () {
-		return this.execute("stop");
+		return this.utorrent().stop(this);
 	}
 
 	/**
 	 * Unpause the torrent
 	 */
 	public unpause () {
-		return this.execute("unpause");
+		return this.utorrent().unpause(this);
 	}
 
 	// Accessors -----------------------------------------------------------------------------------

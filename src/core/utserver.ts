@@ -1,11 +1,15 @@
 import Request          from "request";
 import { TokenError }   from "../errors";
 import { NetworkUtils } from "../utils";
+import { Action }       from "../types";
 import request, {
 	CoreOptions,
 	UriOptions
 } from "request";
 
+/**
+ * Manage the uTorrent server
+ */
 export class UtServer
 {
 	/**
@@ -36,6 +40,7 @@ export class UtServer
 	 */
 	private sendRequest(options: CoreOptions & UriOptions) {
 		options.qs.token = this.__token;
+		options.qsStringifyOptions = { arrayFormat: "repeat" };
 		return new Promise<string>((resolve, reject) => {
 			Request(options, (error, response, body) => {
 				error = NetworkUtils.validateUtServerResponse(error, response, body);
@@ -99,9 +104,9 @@ export class UtServer
 	/**
 	 * Execute an action on uTorrent
 	 */
-	public execute (action: string, params: any = {}) {
+	public execute (action: Action, params: any = {}) {
 		let options: request.CoreOptions & request.UriOptions;
-		if (action == "add-file") {
+		if (action == Action.AddFile) {
 			options = NetworkUtils.formOptions(params, {
 				qs: { action: action }
 			});

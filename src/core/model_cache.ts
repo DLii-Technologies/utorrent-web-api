@@ -52,14 +52,12 @@ export class ModelCache<T extends Model>
 	 * If it doesn't exist, create it
 	 * (Assumes first item in data is ID)
 	 */
-	fetch (data?: any) {
-		let id   = <string>data[0];
+	fetch (id: string) {
 		let item = this.__set[id];
 		if (item === undefined) {
 			item = this.create(this.__model, this.__args);
 			this.__set[id] = item;
 		}
-		item.setData(data);
 		return item;
 	}
 
@@ -69,7 +67,8 @@ export class ModelCache<T extends Model>
 	public update (data: any[]) {
 		let ids = Object.assign({}, this.__set);
 		for (let modelData of data) {
-			let item = this.fetch(modelData);
+			let item = this.fetch(modelData[0]);
+			item.setData(modelData);
 			delete ids[modelData[0]];
 		}
 		for (let id in ids) {
