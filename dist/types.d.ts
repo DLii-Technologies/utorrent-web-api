@@ -1,5 +1,4 @@
-import { Torrent } from "./models/torrent";
-import { File } from "models/file";
+import { File, Torrent } from "./models";
 /**
  * Torrent input
  */

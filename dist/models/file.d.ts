@@ -1,4 +1,4 @@
-import { Priority } from "types";
+import { Priority } from "../types";
 import { Model } from "../models/model";
 import { Torrent } from "./torrent";
 export declare class File extends Model {

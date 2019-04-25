@@ -10,7 +10,6 @@ import {
 	Priority,
 	IFileList
 } from "./types";
-import { File } from "models/file";
 
 export class uTorrent extends UtServer
 {

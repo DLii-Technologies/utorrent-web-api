@@ -1,4 +1,4 @@
-import { IFile, Priority } from "types";
+import { IFile, Priority } from "../types";
 import { Model }           from "../models/model";
 import { Torrent }         from "./torrent";
 
