@@ -63,7 +63,10 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="utorrent-web-api">utorrent-web-api</h1>
-				<p>A powerful and complete implementation of the uTorrent Web API. It is compitable with both Javascript and Typescript!</p>
+				<p><a href="https://npmjs.org/package/utorrent-web-api"><img src="https://img.shields.io/npm/v/utorrent-web-api.svg" alt=""></a>
+				<a href="https://npmjs.org/package/utorrent-web-api"><img src="https://img.shields.io/npm/dm/utorrent-web-api.svg" alt=""></a></p>
+				<p>A powerful and complete implementation of the uTorrent Web API. It is compatible with both Javascript and TypeScript!</p>
+				<p><strong>Note:</strong> This library is a work in progress, so not all features may be available.</p>
 				<h2 id="installation">Installation</h2>
 				<pre><code class="language-sh">npm i utorrent-web-api</code></pre>
 				<h2 id="examples">Examples</h2>
@@ -125,6 +128,24 @@ myAddedTorrent.start().then(<span class="hljs-function"><span class="hljs-params
 <span class="hljs-comment">// Delete the torrent with its data</span>
 myAddedTorrent.remove(RemoveFlag.WithTorrent | RemoveFlag.WithData).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Removed successfully"</span>);
+});</code></pre>
+				<h3 id="downloaded-files">Downloaded Files</h3>
+				<p>It&#39;s a peace of cake to manage downloading or downloaded files with the API! You can check on their progress and manage their priority.</p>
+				<pre><code class="language-ts"><span class="hljs-comment">// Fetch the files</span>
+myTorrent.files().then(<span class="hljs-function">(<span class="hljs-params">fileArray</span>) =&gt;</span> {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file of fileArray) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Name:"</span>, file.name, <span class="hljs-string">"; Progress:"</span>, file.progress * <span class="hljs-number">100</span>);
+    }
+});
+
+<span class="hljs-comment">// Set a file's download priority</span>
+file.setPriority(Priority.Skip).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"This file will not be downloaded..."</span>);
+});
+
+<span class="hljs-comment">// Set the priority of multiple files at once</span>
+myTorrent.setFilePriority(myTorrentFiles, Priority.High).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"The files specified have been set"</span>);
 });</code></pre>
 				<h2 id="documentation">Documentation</h2>
 				<p><a href="https://doc.dlii.tech/utorrent-web-api">Full Documention</a> can be found here</p>

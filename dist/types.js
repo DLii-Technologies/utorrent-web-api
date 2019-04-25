@@ -10,20 +10,33 @@ var Access;
     Access["ReadWrite"] = "Y";
 })(Access = exports.Access || (exports.Access = {}));
 /**
- * Actions that can be performed on a torrent
+ * Defined actions
  */
 var Action;
 (function (Action) {
-    Action["Start"] = "start";
-    Action["Stop"] = "stop";
-    Action["Pause"] = "pause";
+    Action["AddFile"] = "add-file";
+    Action["AddUrl"] = "add-url";
+    Action["ConfigureRemote"] = "configureremote";
     Action["ForceStart"] = "forcestart";
-    Action["Unpause"] = "unpause";
+    Action["GetFiles"] = "getfiles";
+    Action["GetSessions"] = "getsessions";
+    Action["GetSettings"] = "getsettings";
+    Action["GetTransferHistory"] = "getxferhist";
+    Action["List"] = "list";
+    Action["ListDirectories"] = "list-dirs";
+    Action["Logout"] = "logout";
+    Action["Pause"] = "pause";
     Action["Recheck"] = "recheck";
     Action["Remove"] = "remove";
     Action["RemoveData"] = "removedata";
     Action["RemoveTorrent"] = "removetorrent";
-    Action["RemoveDataTorrent"] = "removedatatorrent";
+    Action["RemoveTorrentData"] = "removetorrentdata";
+    Action["ResetTransferHistory"] = "resetxferhist";
+    Action["SetFilePriority"] = "setprio";
+    Action["SetSetting"] = "setsetting";
+    Action["Start"] = "start";
+    Action["Stop"] = "stop";
+    Action["Unpause"] = "unpause";
 })(Action = exports.Action || (exports.Action = {}));
 /**
  * The possible torrent priorities

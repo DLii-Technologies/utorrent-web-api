@@ -1,4 +1,9 @@
 import { Torrent } from "./models/torrent";
+import { File } from "models/file";
+/**
+ * Torrent input
+ */
+export declare type TorrentInput = Torrent | string | Array<Torrent | string> | ITorrentList;
 /**
  * The possible access settings
  */
@@ -8,19 +13,32 @@ export declare enum Access {
     ReadWrite = "Y"
 }
 /**
- * Actions that can be performed on a torrent
+ * Defined actions
  */
 export declare enum Action {
-    Start = "start",
-    Stop = "stop",
-    Pause = "pause",
+    AddFile = "add-file",
+    AddUrl = "add-url",
+    ConfigureRemote = "configureremote",
     ForceStart = "forcestart",
-    Unpause = "unpause",
+    GetFiles = "getfiles",
+    GetSessions = "getsessions",
+    GetSettings = "getsettings",
+    GetTransferHistory = "getxferhist",
+    List = "list",
+    ListDirectories = "list-dirs",
+    Logout = "logout",
+    Pause = "pause",
     Recheck = "recheck",
     Remove = "remove",
     RemoveData = "removedata",
     RemoveTorrent = "removetorrent",
-    RemoveDataTorrent = "removedatatorrent"
+    RemoveTorrentData = "removetorrentdata",
+    ResetTransferHistory = "resetxferhist",
+    SetFilePriority = "setprio",
+    SetSetting = "setsetting",
+    Start = "start",
+    Stop = "stop",
+    Unpause = "unpause"
 }
 /**
  * The possible torrent priorities
@@ -206,7 +224,8 @@ export interface ITorrentListCache {
 /**
  * Represents a single file's information from a torrent
  */
-export interface FileInfo {
+export interface IFile {
+    id: number;
     name: string;
     size: number;
     downloaded: number;
@@ -224,7 +243,6 @@ export interface FileInfo {
 /**
  * Represents a file list for a torrent returned by uTorrent
  */
-export interface FileList {
-    hash: string;
-    files: Array<FileInfo>;
+export interface IFileList {
+    [torrentHash: string]: Array<File>;
 }

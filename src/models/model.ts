@@ -1,5 +1,3 @@
-import { uTorrent } from "utorrent";
-
 export abstract class Model
 {
 	/**

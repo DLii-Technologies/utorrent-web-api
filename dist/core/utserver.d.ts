@@ -1,3 +1,7 @@
+import { Action } from "../types";
+/**
+ * Manage the uTorrent server
+ */
 export declare class UtServer {
     /**
      * uTorrent information
@@ -30,7 +34,7 @@ export declare class UtServer {
     /**
      * Execute an action on uTorrent
      */
-    execute(action: string, params?: any): Promise<string>;
+    execute(action: Action, params?: any): Promise<string>;
     /**
      * Set the connection address
      */

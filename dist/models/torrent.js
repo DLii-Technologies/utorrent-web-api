@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const model_1 = require("../core/model");
-const errors_1 = require("../errors");
+const model_1 = require("./model");
+const types_1 = require("../types");
+const model_cache_1 = require("../core/model_cache");
+const file_1 = require("./file");
 var RemoveFlag;
 (function (RemoveFlag) {
     RemoveFlag[RemoveFlag["JobOnly"] = 0] = "JobOnly";
@@ -9,10 +11,18 @@ var RemoveFlag;
     RemoveFlag[RemoveFlag["WithData"] = 2] = "WithData";
 })(RemoveFlag = exports.RemoveFlag || (exports.RemoveFlag = {}));
 class Torrent extends model_1.Model {
+    constructor(utorrent) {
+        super();
+        /**
+         * Store the associated files
+         */
+        this.__fileCache = new model_cache_1.ModelCache(file_1.File, this);
+        this.__utorrent = utorrent;
+    }
     /**
      * Update the corrent information
      */
-    setData(info) {
+    __setData(info) {
         this.__torrent = {
             hash: info[0],
             status: info[1],
@@ -42,21 +52,49 @@ class Torrent extends model_1.Model {
         };
     }
     /**
-     * Execute a generic action
+     * Update the file data and return the files
      */
-    execute(action) {
-        // Don't return the response of the execution.
+    __setFileData(info) {
+        let files = [];
+        for (let i = 0; i < info.length; i++) {
+            let finalData = [i].concat(info[i]);
+            files.push(finalData);
+        }
+        return this.__fileCache.update(files).all();
+    }
+    /**
+     * Get the files associated with the torrent
+     */
+    files() {
         return new Promise((resolve, reject) => {
-            this.utorrent().execute(action, { hash: this.__torrent.hash, list: 1 }).then((body) => {
-                let torrents = JSON.parse(body)["torrents"];
-                for (let torrent of torrents) {
-                    if (torrent[0] == this.hash) {
-                        this.setData(torrent);
-                        resolve();
-                        return;
-                    }
+            this.__utorrent.files(this).then((files) => {
+                resolve(files[this.hash]);
+            }).catch(reject);
+        });
+    }
+    /**
+     * Set the priority of the given file(s)
+     */
+    setFilePriority(files, priority) {
+        let indices = [];
+        if (Array.isArray(files)) {
+            for (let file of files) {
+                indices.push(file.id);
+            }
+        }
+        else {
+            indices.push(files.id);
+        }
+        return new Promise((resolve, reject) => {
+            this.__utorrent.execute(types_1.Action.SetFilePriority, {
+                hash: this.hash,
+                f: indices,
+                p: priority
+            }).then(() => {
+                for (let index of indices) {
+                    this.__fileCache.fetch(index).__setPriority(priority);
                 }
-                throw new errors_1.uTorrentError(`Torrent not found: ${this.hash}`);
+                resolve();
             }).catch(reject);
         });
     }
@@ -65,50 +103,39 @@ class Torrent extends model_1.Model {
      * Pause the torrent
      */
     pause() {
-        return this.execute("pause");
+        return this.__utorrent.pause(this);
     }
     /**
      * Refresh the current torrent
      */
     refresh() {
         return new Promise((resolve, reject) => {
-            this.utorrent().list().then(() => {
-                resolve();
-            }).catch(reject);
+            this.__utorrent.refresh().then(resolve).catch(reject);
         });
     }
     /**
      * Remove the torrent from uTorrent
      */
     remove(flags = RemoveFlag.JobOnly) {
-        switch (flags) {
-            case RemoveFlag.WithTorrent:
-                return this.execute("removetorrent");
-            case RemoveFlag.WithData:
-                return this.execute("removedata");
-            case RemoveFlag.WithTorrent | RemoveFlag.WithData:
-                return this.execute("removetorrentdata");
-            default:
-                return this.execute("remove");
-        }
+        return this.__utorrent.remove(this, flags);
     }
     /**
      * Start the torrent
      */
     start(force = false) {
-        return this.execute(`${force ? "force" : ""}"start"`);
+        return this.__utorrent.start(this, force);
     }
     /**
      * Stop the torrent
      */
     stop() {
-        return this.execute("stop");
+        return this.__utorrent.stop(this);
     }
     /**
      * Unpause the torrent
      */
     unpause() {
-        return this.execute("unpause");
+        return this.__utorrent.unpause(this);
     }
     // Accessors -----------------------------------------------------------------------------------
     /**
@@ -127,13 +154,13 @@ class Torrent extends model_1.Model {
      * Get the date the torrent was added
      */
     get dateAdded() {
-        return this.__torrent.date_added;
+        return new Date(this.__torrent.date_added);
     }
     /**
      * Get the date the torrent was completed
      */
     get dateCompleted() {
-        return this.__torrent.date_completed;
+        return new Date(this.__torrent.date_completed);
     }
     /**
      * The amount of data downloaded (bytes)
@@ -158,12 +185,6 @@ class Torrent extends model_1.Model {
      */
     get eta() {
         return this.__torrent.time_remaining;
-    }
-    /**
-     * Fetch the files associated with the torrent
-     */
-    get files() {
-        return undefined;
     }
     /**
      * The torrent's hash

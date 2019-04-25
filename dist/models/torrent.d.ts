@@ -1,4 +1,7 @@
-import { Model } from "../core/model";
+import { Model } from "./model";
+import { Priority } from "../types";
+import { File } from "./file";
+import { uTorrent } from "utorrent";
 export declare enum RemoveFlag {
     JobOnly = 0,
     WithTorrent = 1,
@@ -6,17 +9,36 @@ export declare enum RemoveFlag {
 }
 export declare class Torrent extends Model {
     /**
+     * Store the uTorrent instance
+     */
+    private __utorrent;
+    /**
      * Store all of the torrent information
      */
     private __torrent;
     /**
+     * Store the associated files
+     */
+    private __fileCache;
+    constructor(utorrent: uTorrent);
+    /**
      * Update the corrent information
      */
-    setData(info: any): void;
+    __setData(info: any): void;
     /**
-     * Execute a generic action
+     * Update the file data and return the files
      */
-    protected execute(action: string): Promise<void>;
+    __setFileData(info: Array<any[]>): {
+        [id: string]: File;
+    };
+    /**
+     * Get the files associated with the torrent
+     */
+    files(): Promise<File[]>;
+    /**
+     * Set the priority of the given file(s)
+     */
+    setFilePriority(files: File | Array<File>, priority: Priority): Promise<void>;
     /**
      * Pause the torrent
      */
@@ -52,11 +74,11 @@ export declare class Torrent extends Model {
     /**
      * Get the date the torrent was added
      */
-    readonly dateAdded: number;
+    readonly dateAdded: Date;
     /**
      * Get the date the torrent was completed
      */
-    readonly dateCompleted: number;
+    readonly dateCompleted: Date;
     /**
      * The amount of data downloaded (bytes)
      */
@@ -73,10 +95,6 @@ export declare class Torrent extends Model {
      * Get the estimated time remaining (seconds)
      */
     readonly eta: number;
-    /**
-     * Fetch the files associated with the torrent
-     */
-    readonly files: undefined;
     /**
      * The torrent's hash
      */

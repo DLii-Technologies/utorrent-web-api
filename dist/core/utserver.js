@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const request_1 = __importDefault(require("request"));
 const errors_1 = require("../errors");
 const utils_1 = require("../utils");
+const types_1 = require("../types");
+/**
+ * Manage the uTorrent server
+ */
 class UtServer {
     /**
      * Create a new instance of uTorrent
@@ -27,6 +31,7 @@ class UtServer {
      */
     sendRequest(options) {
         options.qs.token = this.__token;
+        options.qsStringifyOptions = { arrayFormat: "repeat" };
         return new Promise((resolve, reject) => {
             request_1.default(options, (error, response, body) => {
                 error = utils_1.NetworkUtils.validateUtServerResponse(error, response, body);
@@ -91,7 +96,7 @@ class UtServer {
      */
     execute(action, params = {}) {
         let options;
-        if (action == "add-file") {
+        if (action == types_1.Action.AddFile) {
             options = utils_1.NetworkUtils.formOptions(params, {
                 qs: { action: action }
             });

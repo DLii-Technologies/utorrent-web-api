@@ -1,4 +1,4 @@
-import { Model } from "./model";
+import { Model } from "../models/model";
 /**
  * A cache used to add new, update existing, and remove unused object instances.
  */
@@ -38,7 +38,7 @@ export declare class ModelCache<T extends Model> {
      * If it doesn't exist, create it
      * (Assumes first item in data is ID)
      */
-    fetch(data?: any): T;
+    fetch(id: number | string): T;
     /**
      * Update the cache
      */
