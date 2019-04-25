@@ -1,7 +1,7 @@
 import { Model } from "./model";
 import { Priority } from "../types";
 import { File } from "./file";
-import { uTorrent } from "utorrent";
+import { uTorrent } from "../utorrent";
 export declare enum RemoveFlag {
     JobOnly = 0,
     WithTorrent = 1,

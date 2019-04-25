@@ -2,7 +2,7 @@ import { Model }               from "./model";
 import { ITorrent, IFileList, Priority, Action } from "../types";
 import { ModelCache }          from "../core/model_cache";
 import { File }                from "./file";
-import { uTorrent } from "utorrent";
+import { uTorrent }            from "../utorrent";
 
 export enum RemoveFlag {
 	JobOnly     = 0,
